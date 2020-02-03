@@ -28,10 +28,18 @@
   
     
   
-  <meta name="description" content="Associated Professor of Behavioral Ecology">
+  <meta name="description" content=" 一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。
+碎石图
+ 此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度
+贡献率
+ 依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。
+在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。
+主成分分析
+ 附简易代码
+ head(iris) ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings &lt;- ir.pca$rotation scores &lt;- ir.pca$x plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;) ev &lt;- ir.pca$sdev^2 source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;) evplot(ev) library(&quot;ggbiplot&quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/">
+  <link rel="alternate" hreflang="en-us" href="/post/test/">
 
   
 
@@ -213,14 +221,12 @@
 
 
   
-  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="Academic">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/">
+  <link rel="canonical" href="/post/test/">
 
   
   
@@ -234,18 +240,73 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Academic">
-  <meta property="og:url" content="/post/">
-  <meta property="og:title" content="Posts | Academic">
-  <meta property="og:description" content="Associated Professor of Behavioral Ecology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:url" content="/post/test/">
+  <meta property="og:title" content="PCA Short Explain | Academic">
+  <meta property="og:description" content=" 一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。
+碎石图
+ 此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度
+贡献率
+ 依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。
+在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。
+主成分分析
+ 附简易代码
+ head(iris) ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings &lt;- ir.pca$rotation scores &lt;- ir.pca$x plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;) ev &lt;- ir.pca$sdev^2 source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;) evplot(ev) library(&quot;ggbiplot&quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  "><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-02-03T00:00:00&#43;00:00">
+    
+      <meta property="article:published_time" content="2020-02-03T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-02-03T17:41:23&#43;08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/test/"
+  },
+  "headline": "PCA Short Explain",
+  
+  "datePublished": "2020-02-03T00:00:00Z",
+  "dateModified": "2020-02-03T17:41:23+08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Geebbon"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Owned by Dr Geebbon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": " 一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。\n碎石图\n 此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度\n贡献率\n 依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。\n在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。\n主成分分析\n 附简易代码\n head(iris) ir.pca \u0026lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings \u0026lt;- ir.pca$rotation scores \u0026lt;- ir.pca$x plot(ir.pca, type = \u0026quot;l\u0026quot;,main=\u0026quot;\u0026quot;) ev \u0026lt;- ir.pca$sdev^2 source (\u0026#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code\u0026amp;codeblock=1\u0026#39;) evplot(ev) library(\u0026quot;ggbiplot\u0026quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  "
+}
+</script>
+
+  
 
   
 
@@ -253,10 +314,13 @@
   
 
 
+  
 
 
 
-  <title>Posts | Academic</title>
+
+
+  <title>PCA Short Explain | Academic</title>
 
 </head>
 
@@ -526,72 +590,33 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>PCA Short Explain</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/test/" >PCA Short Explain</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -629,329 +654,225 @@
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
-    
-  
-    
-      
 
 
+  <div class="article-container">
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/writing-technical-content/" >Writing technical content in Academic</a>
-    </h3>
-
-    
     <div class="article-style">
-      Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
       
 
+
+<p>一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。</p>
+<div class="figure">
+<img src="1817671-f39056b2a8a39add.png" alt="碎石图" />
+<p class="caption"><em>碎石图</em></p>
+</div>
+<p>此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度</p>
+<div class="figure">
+<img src="1817671-f115189a5c07d722.png" alt="贡献率" />
+<p class="caption"><em>贡献率</em></p>
+</div>
+<p>依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。</p>
+<p>在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。</p>
+<div class="figure">
+<img src="1817671-e3c1851faab033ca.png" alt="主成分分析" />
+<p class="caption"><em>主成分分析</em></p>
+</div>
+<p>附简易代码</p>
+<pre><code>
+head(iris)
+
+ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE)
+
+summary(ir.pca)
+
+loadings &lt;- ir.pca$rotation
+
+scores &lt;- ir.pca$x
+
+plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;)
+
+ev &lt;- ir.pca$sdev^2
+
+source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;)
+evplot(ev)
+
+library(&quot;ggbiplot&quot;)
+
+ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1)
+
+ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/test/&amp;text=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Jul 12, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/writing-technical-content/" >
-      <img src="/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg" alt="">
-    </a>
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/jupyter/" >Display Jupyter Notebooks with Academic</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Learn how to blog in Academic using Jupyter notebooks
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-  
-  
-  <div>
-    
-
-
-
-  
-  <span><a href="/authors/admin/">Dr. Geebbon</a></span>
-
-  </div>
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/test/&amp;t=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-          Last updated on
       
-    
-    Sep 5, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/jupyter/" >
-      <img src="/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/getting-started/" >Academic: the website builder for Hugo</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Create a beautifully simple website in under 10 minutes.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-  
-  
-  <div>
-    
-
-
-
-  
-  <span><a href="/authors/admin/">Dr. Geebbon</a></span>
-
-  </div>
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=PCA%20Short%20Explain&amp;body=/post/test/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-          Last updated on
       
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/test/&amp;title=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
-    Apr 17, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/demo/">Demo</a></span>
-  
-
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=PCA%20Short%20Explain%20/post/test/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/test/&amp;title=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
       
+      <img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hua4055aeadd5fba0b4baca5f9e0ec575b_38064_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Dr. Geebbon</a></h5>
+      <h6 class="card-subtitle">Associated Professor of Behavioral Ecology</h6>
+      <p class="card-text">My research interests include behavior of primates, biostatistics and programmable matter.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+</ul>
+
     </div>
-
-    
-
   </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/getting-started/" >
-      <img src="/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q90_lanczos.jpg" alt="">
-    </a>
-    
-  </div>
-</div>
 
-    
+
+
+
+
+
+
+
+
   
-
   
 
 
-</div>
+
+  </div>
+</article>
 
       
 

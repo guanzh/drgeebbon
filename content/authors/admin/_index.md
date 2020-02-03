@@ -61,4 +61,4 @@ user_groups:
 - Visitors
 ---
 
-Dr. GuanZH is an associated professor of primatologist at the Yunnan Academy of biodiversity of SWFU. His research interests include behavioral ecology of primates, conservation of wild life and programmable matter.
+Dr. GuanZ.H. is an associated professor of primatologist at the Yunnan Academy of Biodiversity of SWFU. His research interests include behavioral ecology of primates, conservation of wild life and programmable matter.
