@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
@@ -13,9 +13,81 @@
     </image>
     
     <item>
+      <title>Fan Pengfei</title>
+      <link>/authors/fan-pengfei/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/fan-pengfei/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fei Hanlan</title>
+      <link>/authors/fei-hanlan/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/fei-hanlan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guan Zhenhua</title>
+      <link>/authors/guan-zhenhua/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/guan-zhenhua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Turvey Samuel T.</title>
+      <link>/authors/turvey-samuel-t./</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/turvey-samuel-t./</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yan Lu</title>
+      <link>/authors/yan-lu/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/yan-lu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zhang Lu</title>
+      <link>/authors/zhang-lu/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/zhang-lu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Huang Bei</title>
+      <link>/authors/huang-bei/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/huang-bei/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jiang Xuelong</title>
+      <link>/authors/jiang-xuelong/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/jiang-xuelong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ning Wenhe</title>
+      <link>/authors/ning-wenhe/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/ning-wenhe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/authors/admin/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
       <description>&lt;p&gt;Dr. GuanZ.H. is an associated professor of primatologist at the Yunnan Academy of Biodiversity of SWFU. His research interests include behavioral ecology of primates, conservation of wild life and programmable matter.&lt;/p&gt;
 </description>
@@ -30,10 +102,34 @@
     </item>
     
     <item>
+      <title>Ma Changyong</title>
+      <link>/authors/ma-changyong/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/ma-changyong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ni Qingyong</title>
+      <link>/authors/ni-qingyong/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/ni-qingyong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Robert Ford</title>
       <link>/authors/robert-ford/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
       <guid>/authors/robert-ford/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sun Guozheng</title>
+      <link>/authors/sun-guozheng/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>/authors/sun-guozheng/</guid>
       <description></description>
     </item>
     
