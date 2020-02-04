@@ -1,6 +1,6 @@
 ---
 title: Writing technical content in Academic
-date: 2019-07-12
+date: 2016-07-12
 math: true
 diagram: true
 image:
@@ -43,8 +43,8 @@ To render *inline* or *block* math, wrap your LaTeX math with `$...$` or `$$...$
 Example **math block**:
 
 ```tex
-$$\gamma_{n} = \frac{ 
-\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
+$$\gamma_{n} = \frac{
+\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T
 \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
 {\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
 ```

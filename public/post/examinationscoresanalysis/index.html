@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Dr. Geebbon">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="一次考试成绩能够反应多少东西，分数是否可以反应平时的用功程度，此外还能够反应出什么，采用一个模拟案例分析。
+问题1，同学间的成绩差异到底有多大？ 综合汇总同学各科成绩计算总分，总体上属正态分布，最高分与最低分相差超过100分，大部分同学集中于500到560之间，优秀学生占少数，按照80%原则，560以上10人。
+问题2，是否存在在成绩上表现极优秀同学？ 从分数上看，没有出现个别极优秀同学，即各门功课均显著突出的。
+问题3，同学们的综合成绩表现如何? 综合选择解释力最强的2个主成分分析，能够解释52.2%的成绩差异。如果我主观武断按照7人1组的分群，这5个群体可以在横轴（即主成分1）上区分开来。从图形上看，前1、2、3群个体形成较为密集的分布，而4、5群个体分布较为离散。
+问题4，哪些课程影响了同学们的综合成绩？ 观察各门功课对于同学在综合表现上（即对主成分1和2的载荷值）的影响，其中影响最大的3门课是，数学影响最大、其次是化学、然后是英语，这3门课将同学在横轴上拉开。在纵轴上影响最大的3门课，拉开距离的是体育、职业生涯规划、思想道德。虽然相关性分析也反映了总分受到数学、化学和英语影响显著，但实际上这3门课对于总成绩差异的解释很有限，PC1为30.1%。
+问题5，这个班级有什么特点？ 1 大多数同学的成绩分数较为集中，成绩最优异的几个同学相对于大部分同学的分数有差距，但并没有非常大的差距，同时没有非常偏科的同学； 2 这个班级大多数同学主要在横轴上有所区分，即数学、化学和英语对于这个班级同学的成绩差异具有显著影响； 3 成绩靠后的同学在纵轴上差异较大； 4 成绩和同学在其他方面上的表现并不明显，在所有同学中，从最左边到最右边，均有个体同学在其他方面的优秀表现没有反映到成绩上； 5 我们无法评价具体分数能够反应出多少同学的能力差异，例如无法评价相差10分能够反映出多少用功程度，但是确定的是相差100分肯定和平时付出的努力相关的，好在该班级在巨大的分数差异上仅有个别同学。
+数据虽为模拟，但依然可以表现出PCA的能力，至少一半的个体差异能够表现出来，并能够进行解释；同时，本案例分析受到了一些限制，例如模拟时期较短，科目成绩不全面，且没有考虑到个体本身的能力差异，廖为一窥而已。 ">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/examinationscoresanalysis/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/examinationscoresanalysis/">
+
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/examinationscoresanalysis/">
+  <meta property="og:title" content="Score simulation and analysis | Academic">
+  <meta property="og:description" content="一次考试成绩能够反应多少东西，分数是否可以反应平时的用功程度，此外还能够反应出什么，采用一个模拟案例分析。
+问题1，同学间的成绩差异到底有多大？ 综合汇总同学各科成绩计算总分，总体上属正态分布，最高分与最低分相差超过100分，大部分同学集中于500到560之间，优秀学生占少数，按照80%原则，560以上10人。
+问题2，是否存在在成绩上表现极优秀同学？ 从分数上看，没有出现个别极优秀同学，即各门功课均显著突出的。
+问题3，同学们的综合成绩表现如何? 综合选择解释力最强的2个主成分分析，能够解释52.2%的成绩差异。如果我主观武断按照7人1组的分群，这5个群体可以在横轴（即主成分1）上区分开来。从图形上看，前1、2、3群个体形成较为密集的分布，而4、5群个体分布较为离散。
+问题4，哪些课程影响了同学们的综合成绩？ 观察各门功课对于同学在综合表现上（即对主成分1和2的载荷值）的影响，其中影响最大的3门课是，数学影响最大、其次是化学、然后是英语，这3门课将同学在横轴上拉开。在纵轴上影响最大的3门课，拉开距离的是体育、职业生涯规划、思想道德。虽然相关性分析也反映了总分受到数学、化学和英语影响显著，但实际上这3门课对于总成绩差异的解释很有限，PC1为30.1%。
+问题5，这个班级有什么特点？ 1 大多数同学的成绩分数较为集中，成绩最优异的几个同学相对于大部分同学的分数有差距，但并没有非常大的差距，同时没有非常偏科的同学； 2 这个班级大多数同学主要在横轴上有所区分，即数学、化学和英语对于这个班级同学的成绩差异具有显著影响； 3 成绩靠后的同学在纵轴上差异较大； 4 成绩和同学在其他方面上的表现并不明显，在所有同学中，从最左边到最右边，均有个体同学在其他方面的优秀表现没有反映到成绩上； 5 我们无法评价具体分数能够反应出多少同学的能力差异，例如无法评价相差10分能够反映出多少用功程度，但是确定的是相差100分肯定和平时付出的努力相关的，好在该班级在巨大的分数差异上仅有个别同学。
+数据虽为模拟，但依然可以表现出PCA的能力，至少一半的个体差异能够表现出来，并能够进行解释；同时，本案例分析受到了一些限制，例如模拟时期较短，科目成绩不全面，且没有考虑到个体本身的能力差异，廖为一窥而已。 "><meta property="og:image" content="/post/examinationscoresanalysis/featured.png">
+  <meta property="twitter:image" content="/post/examinationscoresanalysis/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-04-01T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-04-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/examinationscoresanalysis/"
+  },
+  "headline": "Score simulation and analysis",
+  
+  "image": [
+    "/post/examinationscoresanalysis/featured.png"
+  ],
+  
+  "datePublished": "2019-04-01T00:00:00Z",
+  "dateModified": "2019-04-01T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Geebbon"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Owned by Dr Geebbon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": "一次考试成绩能够反应多少东西，分数是否可以反应平时的用功程度，此外还能够反应出什么，采用一个模拟案例分析。\n问题1，同学间的成绩差异到底有多大？ 综合汇总同学各科成绩计算总分，总体上属正态分布，最高分与最低分相差超过100分，大部分同学集中于500到560之间，优秀学生占少数，按照80%原则，560以上10人。\n问题2，是否存在在成绩上表现极优秀同学？ 从分数上看，没有出现个别极优秀同学，即各门功课均显著突出的。\n问题3，同学们的综合成绩表现如何? 综合选择解释力最强的2个主成分分析，能够解释52.2%的成绩差异。如果我主观武断按照7人1组的分群，这5个群体可以在横轴（即主成分1）上区分开来。从图形上看，前1、2、3群个体形成较为密集的分布，而4、5群个体分布较为离散。\n问题4，哪些课程影响了同学们的综合成绩？ 观察各门功课对于同学在综合表现上（即对主成分1和2的载荷值）的影响，其中影响最大的3门课是，数学影响最大、其次是化学、然后是英语，这3门课将同学在横轴上拉开。在纵轴上影响最大的3门课，拉开距离的是体育、职业生涯规划、思想道德。虽然相关性分析也反映了总分受到数学、化学和英语影响显著，但实际上这3门课对于总成绩差异的解释很有限，PC1为30.1%。\n问题5，这个班级有什么特点？ 1 大多数同学的成绩分数较为集中，成绩最优异的几个同学相对于大部分同学的分数有差距，但并没有非常大的差距，同时没有非常偏科的同学； 2 这个班级大多数同学主要在横轴上有所区分，即数学、化学和英语对于这个班级同学的成绩差异具有显著影响； 3 成绩靠后的同学在纵轴上差异较大； 4 成绩和同学在其他方面上的表现并不明显，在所有同学中，从最左边到最右边，均有个体同学在其他方面的优秀表现没有反映到成绩上； 5 我们无法评价具体分数能够反应出多少同学的能力差异，例如无法评价相差10分能够反映出多少用功程度，但是确定的是相差100分肯定和平时付出的努力相关的，好在该班级在巨大的分数差异上仅有个别同学。\n数据虽为模拟，但依然可以表现出PCA的能力，至少一半的个体差异能够表现出来，并能够进行解释；同时，本案例分析受到了一些限制，例如模拟时期较短，科目成绩不全面，且没有考虑到个体本身的能力差异，廖为一窥而已。 "
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Score simulation and analysis | Academic</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span>Demo</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Score simulation and analysis</h1>
+
+  
+  <p class="page-subtitle">Simulation scores and analysis, try pca</p>
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/admin/">Dr. Geebbon</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Apr 1, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/demo/">Demo</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header container featured-image-wrapper mt-4 mb-4" style="max-width: 544px; max-height: 588px;">
+  <div style="position: relative">
+    <img src="/post/examinationscoresanalysis/featured.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>一次考试成绩能够反应多少东西，分数是否可以反应平时的用功程度，此外还能够反应出什么，采用一个模拟案例分析。</p>
+<h2 id="问题1同学间的成绩差异到底有多大">问题1，同学间的成绩差异到底有多大？</h2>
+<p>综合汇总同学各科成绩计算总分，总体上属正态分布，最高分与最低分相差超过100分，大部分同学集中于500到560之间，优秀学生占少数，按照80%原则，560以上10人。</p>
+<p><img src="./1817671-a597b409a7c621e5.png" alt="成绩排序的直方图"></p>
+<h2 id="问题2是否存在在成绩上表现极优秀同学">问题2，是否存在在成绩上表现极优秀同学？</h2>
+<p>从分数上看，没有出现个别极优秀同学，即各门功课均显著突出的。</p>
+<h2 id="问题3同学们的综合成绩表现如何">问题3，同学们的综合成绩表现如何?</h2>
+<p>综合选择解释力最强的2个主成分分析，能够解释52.2%的成绩差异。如果我主观武断按照7人1组的分群，这5个群体可以在横轴（即主成分1）上区分开来。从图形上看，前1、2、3群个体形成较为密集的分布，而4、5群个体分布较为离散。</p>
+<p><img src="./featured.png" alt="按照成绩进行聚类"></p>
+<h2 id="问题4哪些课程影响了同学们的综合成绩">问题4，哪些课程影响了同学们的综合成绩？</h2>
+<p>观察各门功课对于同学在综合表现上（即对主成分1和2的载荷值）的影响，其中影响最大的3门课是，数学影响最大、其次是化学、然后是英语，这3门课将同学在横轴上拉开。在纵轴上影响最大的3门课，拉开距离的是体育、职业生涯规划、思想道德。虽然相关性分析也反映了总分受到数学、化学和英语影响显著，但实际上这3门课对于总成绩差异的解释很有限，PC1为30.1%。</p>
+<h2 id="问题5这个班级有什么特点">问题5，这个班级有什么特点？</h2>
+<p>1 大多数同学的成绩分数较为集中，成绩最优异的几个同学相对于大部分同学的分数有差距，但并没有非常大的差距，同时没有非常偏科的同学；
+2 这个班级大多数同学主要在横轴上有所区分，即数学、化学和英语对于这个班级同学的成绩差异具有显著影响；
+3 成绩靠后的同学在纵轴上差异较大；
+4 成绩和同学在其他方面上的表现并不明显，在所有同学中，从最左边到最右边，均有个体同学在其他方面的优秀表现没有反映到成绩上；
+5 我们无法评价具体分数能够反应出多少同学的能力差异，例如无法评价相差10分能够反映出多少用功程度，但是确定的是相差100分肯定和平时付出的努力相关的，好在该班级在巨大的分数差异上仅有个别同学。</p>
+<h2 id="数据虽为模拟但依然可以表现出pca的能力至少一半的个体差异能够表现出来并能够进行解释同时本案例分析受到了一些限制例如模拟时期较短科目成绩不全面且没有考虑到个体本身的能力差异廖为一窥而已">数据虽为模拟，但依然可以表现出PCA的能力，至少一半的个体差异能够表现出来，并能够进行解释；同时，本案例分析受到了一些限制，例如模拟时期较短，科目成绩不全面，且没有考虑到个体本身的能力差异，廖为一窥而已。</h2>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/academic/">Academic</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/examinationscoresanalysis/&amp;text=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/examinationscoresanalysis/&amp;t=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Score%20simulation%20and%20analysis&amp;body=/post/examinationscoresanalysis/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/examinationscoresanalysis/&amp;title=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Score%20simulation%20and%20analysis%20/post/examinationscoresanalysis/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/examinationscoresanalysis/&amp;title=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hua4055aeadd5fba0b4baca5f9e0ec575b_38064_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Dr. Geebbon</a></h5>
+      <h6 class="card-subtitle">Associated Professor of Behavioral Ecology</h6>
+      <p class="card-text">My research interests include behavior of primates, biostatistics and programmable matter.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/getting-started/">Academic: the website builder for Hugo</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.4/mermaid.min.js" integrity="sha256-JEqEejGt4tR35L0a1zodzsV0/PJ6GIf7J4yDtywdrH8=" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.0630fec5958cb075a5a38f042b3ddde6.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

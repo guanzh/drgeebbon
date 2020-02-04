@@ -234,10 +234,9 @@
   
   
     
-    
   
   
-  <meta property="twitter:card" content="summary">
+  <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Academic">
   <meta property="og:url" content="/post/test/">
@@ -250,8 +249,8 @@
 在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。
 主成分分析
  附简易代码
- head(iris) ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings &lt;- ir.pca$rotation scores &lt;- ir.pca$x plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;) ev &lt;- ir.pca$sdev^2 source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;) evplot(ev) library(&quot;ggbiplot&quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  "><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
-  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
+ head(iris) ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings &lt;- ir.pca$rotation scores &lt;- ir.pca$x plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;) ev &lt;- ir.pca$sdev^2 source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;) evplot(ev) library(&quot;ggbiplot&quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  "><meta property="og:image" content="/post/test/featured.png">
+  <meta property="twitter:image" content="/post/test/featured.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2020-02-03T00:00:00&#43;00:00">
@@ -285,6 +284,10 @@
     "@id": "/post/test/"
   },
   "headline": "PCA Short Explain",
+  
+  "image": [
+    "/post/test/featured.png"
+  ],
   
   "datePublished": "2020-02-03T00:00:00Z",
   "dateModified": "2020-02-03T17:41:23+08:00",
@@ -605,18 +608,26 @@
 
 
 
-  
+
+
+
+
+
+
+
 
   
   
+    
   
+
+
 <div class="article-container pt-3">
   <h1>PCA Short Explain</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -654,22 +665,29 @@
 
 </div>
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 562px;">
+  <div style="position: relative">
+    <img src="/post/test/featured_hu31808692f15bcb808dce3770d2ee5bd5_81531_720x0_resize_lanczos_2.png" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -693,7 +711,7 @@
 <p>依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。</p>
 <p>在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。</p>
 <div class="figure">
-<img src="1817671-e3c1851faab033ca.png" alt="主成分分析" />
+<img src="featured.png" alt="主成分分析" />
 <p class="caption"><em>主成分分析</em></p>
 </div>
 <p>附简易代码</p>
