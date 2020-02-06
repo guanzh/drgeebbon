@@ -1,0 +1,79 @@
+---
+title: alpha diversity
+linktitle: Shannon index
+toc: true
+type: docs
+date: "2019-02-05T00:00:00+01:00"
+draft: false
+menu:
+  biodiversityTutorial:
+    parent: Example Topic
+    weight: 1
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 1
+---
+
+假设有ABCD四个物种，每个物种25个个体，所以多样性之和就是 $- 4 * 1/4 * log_{2}{1/4} = 2$，如果我们考虑到物种数量分布实际是不均匀的，即不可能每个物种的个体数是一样的，所以多样性指数随着物种数量不均匀而发生变化。
+
+
+假设有两个物种，两个物种的数量随着一个物种数量的变化，多样性发生变化，显然再两个物种数量一样的时候多样性最高，也可以理解为在给定物种数量的条件下，此时达到熵最大化。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+s = 50
+x = seq(5,50,by=5)
+
+d = numeric(10)
+for (i in 1:10){
+  a=x[i]
+  b=s-a
+  d[i] = -(a/(a+b))*log2(a/(a+b)) -(b/(a+b))*log2(b/(a+b))
+}
+
+
+plot(x=x, y=d, col='red', type='b',xlab="s")
+
+```
+
+那么如果物种数量都是一样，随着物种数量的增加，多样性会发生什么变化？
+随着物种数量的增加，多样性也增加，后期的增加速度显著降低。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+s = 1000
+d = numeric(s)
+n = 100
+for (i in 1:s){
+
+  d[i] = - i * (n/(i*n))*log2(n/(i*n)) 
+}
+
+plot(x=1:s, y=d, col='red', type='b', xlab="s")
+
+```
+
+
+考虑辛普森指数和物种数量的变化，随着物种数量的增加，辛普森指数和香农指数增加的速度有明显差异。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+s = 100
+d = numeric(s)
+simpson = numeric(s)
+n = 100
+for (i in 1:s){
+
+  d[i] = - i * (n/(i*n))*log2(n/(i*n)) 
+  simpson[i] = 1 - 1/i
+}
+
+
+plot(x=1:s, y=d, col='red', type='l', lty=1,xlab="s")
+par(new = TRUE)
+plot(x=1:s, y=simpson, col='blue', type='l', lty=2,xaxt = "n", yaxt = "n",
+     ylab = "", xlab = "")
+axis(side = 4)
+legend("bottomright", c("Shannon", "Simpson"),
+       col = c("red", "blue"), lty = c(1, 2))
+
+```

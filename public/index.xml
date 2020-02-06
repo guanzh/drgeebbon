@@ -35,9 +35,9 @@
     
     <item>
       <title>alpha diversity</title>
-      <link>/courses/biodiversitytutorial/alphad/</link>
+      <link>/courses/biodiversitytutorial/alphaindex/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0100</pubDate>
-      <guid>/courses/biodiversitytutorial/alphad/</guid>
+      <guid>/courses/biodiversitytutorial/alphaindex/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -46,10 +46,12 @@ true
 
 &lt;p&gt;假设有ABCD四个物种，每个物种25个个体，所以多样性之和就是 &lt;span class=&#34;math inline&#34;&gt;\(- 4 * 1/4 * log_{2}{1/4} = 2\)&lt;/span&gt;，如果我们考虑到物种数量分布实际是不均匀的，即不可能每个物种的个体数是一样的，所以多样性指数随着物种数量不均匀而发生变化。&lt;/p&gt;
 &lt;p&gt;假设有两个物种，两个物种的数量随着一个物种数量的变化，多样性发生变化，显然再两个物种数量一样的时候多样性最高，也可以理解为在给定物种数量的条件下，此时达到熵最大化。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/courses/biodiversityTutorial/alphaD_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/courses/biodiversityTutorial/alphaIndex_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;那么如果物种数量都是一样，随着物种数量的增加，多样性会发生什么变化？
 随着物种数量的增加，多样性也增加，后期的增加速度显著降低。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/courses/biodiversityTutorial/alphaD_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/courses/biodiversityTutorial/alphaIndex_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;考虑辛普森指数和物种数量的变化，随着物种数量的增加，辛普森指数和香农指数增加的速度有明显差异。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/courses/biodiversityTutorial/alphaIndex_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

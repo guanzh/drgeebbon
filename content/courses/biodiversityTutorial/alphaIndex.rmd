@@ -48,8 +48,32 @@ for (i in 1:s){
   d[i] = - i * (n/(i*n))*log2(n/(i*n)) 
 }
 
-
 plot(x=1:s, y=d, col='red', type='b', xlab="s")
 
 ```
 
+
+考虑辛普森指数和物种数量的变化，随着物种数量的增加，辛普森指数和香农指数增加的速度有明显差异。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+s = 100
+d = numeric(s)
+simpson = numeric(s)
+n = 100
+for (i in 1:s){
+
+  d[i] = - i * (n/(i*n))*log2(n/(i*n)) 
+  simpson[i] = 1 - 1/i
+}
+
+
+plot(x=1:s, y=d, col='red', type='l', lty=1,xlab="s")
+par(new = TRUE)
+plot(x=1:s, y=simpson, col='blue', type='l', lty=2,xaxt = "n", yaxt = "n",
+     ylab = "", xlab = "")
+axis(side = 4)
+legend("bottomright", c("Shannon", "Simpson"),
+       col = c("red", "blue"), lty = c(1, 2))
+
+```
