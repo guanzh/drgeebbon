@@ -1,11 +1,11 @@
 ---
 # Course title, summary, and position.
-linktitle: Biodiversity calculation
+linktitle: Biodiversity Index
 summary: Learn how to use simple indexes calculate biodiversity.
 weight: 1
 
 # Page metadata.
-title: biodiversity_index
+title: Biodiversity index
 date: "2020-02-05T00:00:00Z"
 lastmod: "2020-02-05T00:00:00Z"
 draft: false  # Is this a draft? true/false
@@ -17,7 +17,7 @@ type: docs  # Do not modify.
 # - weight: Position of link in menu.
 menu:
   biodiversityTutorial:
-    name: biodiversity_index
+    name: Biodiversity index
     weight: 1
 ---
 

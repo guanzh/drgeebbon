@@ -52,3 +52,6 @@ hero_media = "hero-academic.png"
 +++
 
 **Learning from animals**
+
+
+***Update: Coursera Materials ***
