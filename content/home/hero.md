@@ -54,4 +54,4 @@ hero_media = "hero-academic.png"
 **Learning from animals**
 
 
-[***Update: Coursera Materials***](https://drgeebbon.netlify.com/courses/)
+***Update: betareg post***

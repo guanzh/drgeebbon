@@ -1,6 +1,6 @@
 ---
-title: 'Score simulation and analysis'
-subtitle: 'Simulation scores and analysis, try pca'
+title: 'Beta and Dirichlet regression'
+subtitle: 'Beta and Dirichlet regression'
 summary:
 authors:
 - admin
@@ -36,5 +36,6 @@ projects: []
 
 对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量[Douma & Weedon, 2019](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13234)。
 
+β回归针对的数据是分布于0到1之间的，以比例的形式出现。此外，也有将分布于a到b之间的数据转化为0到1的数据，转化公式为 $\frac{y-a}{b-a}$。同GLMs一样，β回归也包括3个部分，随机成分，系统成分和链接函数。β回归的假设条件为数据服从于β分布(Balakrishnan & Nevzorov, 2003)，β分布属于指数分布家族一员(Kieschnick & McCullough, 2003)，由2个参数控制。当数据中反应的类型超过2个类型时，β回归则扩展为Dirichlet 回归(Camargo, Stern, & Lauretto, 2012; Gueorguieva, Rosenheck, & Zelterman, 2008; Hijazi & Jernigan, 2009)。
 
-()
+
