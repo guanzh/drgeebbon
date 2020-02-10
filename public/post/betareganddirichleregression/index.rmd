@@ -1,0 +1,40 @@
+---
+title: 'Score simulation and analysis'
+subtitle: 'Simulation scores and analysis, try pca'
+summary:
+authors:
+- admin
+tags:
+- Academic
+categories:
+- Demo
+date: "2020-02-09T00:00:00Z"
+lastmod: "2020-02-09T00:00:00Z"
+featured: false
+draft: false
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+image:
+  placement: 2
+  caption: ''
+  focal_point: ""
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: []
+---
+
+
+我们通常会使用线性回归，方差分析等方法来分析此类数据，回归统计在数据分析中非常重要，然而，对于一些比例数据，使用常见的线性回归则有不少弊端，例如，基于常见线性回归的预测结果可能会有负值，显然这是违反现实情况的。同时，此类方法的前提假设是因变量服从正态分布，然而正态分布本身包含从负无穷大到正无穷大的值，因此不太适合模拟比例数据。我们研究的对象数据只能在0到1之间取值。小于0或大于1的值没有意义。
+
+对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量[Douma & Weedon, 2019](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13234)。
+
+
+()

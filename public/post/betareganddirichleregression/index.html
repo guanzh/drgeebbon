@@ -28,10 +28,12 @@
   
     
   
-  <meta name="description" content="Gibbon monitoring in China">
+  <meta name="description" content="我们通常会使用线性回归，方差分析等方法来分析此类数据，回归统计在数据分析中非常重要，然而，对于一些比例数据，使用常见的线性回归则有不少弊端，例如，基于常见线性回归的预测结果可能会有负值，显然这是违反现实情况的。同时，此类方法的前提假设是因变量服从正态分布，然而正态分布本身包含从负无穷大到正无穷大的值，因此不太适合模拟比例数据。我们研究的对象数据只能在0到1之间取值。小于0或大于1的值没有意义。
+对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量Douma &amp; Weedon, 2019。
+()">
 
   
-  <link rel="alternate" hreflang="en-us" href="/publication/2017gibbonmonitorinchina/">
+  <link rel="alternate" hreflang="en-us" href="/post/betareganddirichleregression/">
 
   
 
@@ -218,7 +220,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/publication/2017gibbonmonitorinchina/">
+  <link rel="canonical" href="/post/betareganddirichleregression/">
 
   
   
@@ -226,20 +228,23 @@
   
   
     
+    
   
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Academic">
-  <meta property="og:url" content="/publication/2017gibbonmonitorinchina/">
-  <meta property="og:title" content="Population Monitoring of Gibbons in China | Academic">
-  <meta property="og:description" content="Gibbon monitoring in China"><meta property="og:image" content="/publication/2017gibbonmonitorinchina/featured.jpg">
-  <meta property="twitter:image" content="/publication/2017gibbonmonitorinchina/featured.jpg"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="/post/betareganddirichleregression/">
+  <meta property="og:title" content="Score simulation and analysis | Academic">
+  <meta property="og:description" content="我们通常会使用线性回归，方差分析等方法来分析此类数据，回归统计在数据分析中非常重要，然而，对于一些比例数据，使用常见的线性回归则有不少弊端，例如，基于常见线性回归的预测结果可能会有负值，显然这是违反现实情况的。同时，此类方法的前提假设是因变量服从正态分布，然而正态分布本身包含从负无穷大到正无穷大的值，因此不太适合模拟比例数据。我们研究的对象数据只能在0到1之间取值。小于0或大于1的值没有意义。
+对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量Douma &amp; Weedon, 2019。
+()"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2017-01-01T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-02-09T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2017-01-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-02-09T00:00:00&#43;00:00">
   
 
   
@@ -251,6 +256,8 @@
 
 
 
+
+  
 
 
 
@@ -260,23 +267,19 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/publication/2017gibbonmonitorinchina/"
+    "@id": "/post/betareganddirichleregression/"
   },
-  "headline": "Population Monitoring of Gibbons in China",
+  "headline": "Score simulation and analysis",
   
-  "image": [
-    "/publication/2017gibbonmonitorinchina/featured.jpg"
-  ],
-  
-  "datePublished": "2017-01-01T00:00:00Z",
-  "dateModified": "2017-01-01T00:00:00Z",
+  "datePublished": "2020-02-09T00:00:00Z",
+  "dateModified": "2020-02-09T00:00:00Z",
   
   "author": {
     "@type": "Person",
-    "name": "Guan Zhenhua"
+    "name": "Dr. Geebbon"
   },
   
   "publisher": {
@@ -287,7 +290,7 @@
       "url": "img//"
     }
   },
-  "description": "Gibbon monitoring in China"
+  "description": "我们通常会使用线性回归，方差分析等方法来分析此类数据，回归统计在数据分析中非常重要，然而，对于一些比例数据，使用常见的线性回归则有不少弊端，例如，基于常见线性回归的预测结果可能会有负值，显然这是违反现实情况的。同时，此类方法的前提假设是因变量服从正态分布，然而正态分布本身包含从负无穷大到正无穷大的值，因此不太适合模拟比例数据。我们研究的对象数据只能在0到1之间取值。小于0或大于1的值没有意义。\n对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量Douma \u0026amp; Weedon, 2019。\n()"
 }
 </script>
 
@@ -305,7 +308,7 @@
 
 
 
-  <title>Population Monitoring of Gibbons in China | Academic</title>
+  <title>Score simulation and analysis | Academic</title>
 
 </head>
 
@@ -546,7 +549,7 @@
 </nav>
 
 
-  <div class="pub">
+  <article class="article">
 
   
 
@@ -561,26 +564,20 @@
 
 
 
-
-
-
-
-
-
-
+  
 
   
+  
+  
+<div class="article-container pt-3">
+  <h1>Score simulation and analysis</h1>
+
+  
+  <p class="page-subtitle">Simulation scores and analysis, try pca</p>
+  
+
   
     
-  
-
-
-<div class="article-container pt-3">
-  <h1>Population Monitoring of Gibbons in China</h1>
-
-  
-
-  
 
 
 <div class="article-metadata">
@@ -595,7 +592,7 @@
 
 
   
-  <span><a href="/authors/guan-zhenhua/">Guan Zhenhua</a></span>, <span><a href="/authors/huang-bei/">Huang Bei</a></span>, <span><a href="/authors/yan-lu/">Yan Lu</a></span>
+  <span><a href="/authors/admin/">Dr. Geebbon</a></span>
 
   </div>
   
@@ -607,151 +604,63 @@
     
       
     
-    January 2017
+    Feb 9, 2020
   </span>
   
 
   
 
   
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
 
   
   
   
 
   
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/demo/">Demo</a></span>
   
 
 </div>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="btn-links mb-3">
-  
-  
-
-
-
-
-
-
-
-
-  
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1" href="https://www.scdwzz.com/viewmulu.aspx?qi_id=1649&amp;mid=51556&amp;xuhao=20" target="_blank" rel="noopener">
-  PDF
-</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1" href="https://doi.org/10.24272/j.issn.2095-8137.2018.045" target="_blank" rel="noopener">
-  DOI
-</a>
-
-
-
-</div>
-
-
-</div>
-
-
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 401px;">
-  <div style="position: relative">
-    <img src="/publication/2017gibbonmonitorinchina/featured_hue2034707c8ac2fc96310ee1326167195_1889815_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
-    <span class="article-header-caption">Image featured</span>
-  </div>
 </div>
 
 
 
   <div class="article-container">
 
-    
-    <h3>Abstract</h3>
-    <p class="pub-abstract">Population monitoring is important for the conservation of endangered wild animal species. Gibbons (Hylobatidae), a class Ⅰ national key protected species, are the only apes distributed in China. Based on the current population monitoring and investigation of gibbon, we created the timeline of monitoring work and reviewed the development, duration time and protection effect on 4 gibbon species, analyzed the role of scientific research in the gibbon conservation projects, and put forward some concrete measures for future gibbon monitoring work.</p>
-    
+    <div class="article-style">
+      
 
-    
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Type</div>
-          <div class="col-12 col-md-9">
-            
-            
-            <a href="/publication/#2">
-              Journal article
-            </a>
-            
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
+
+<p>我们通常会使用线性回归，方差分析等方法来分析此类数据，回归统计在数据分析中非常重要，然而，对于一些比例数据，使用常见的线性回归则有不少弊端，例如，基于常见线性回归的预测结果可能会有负值，显然这是违反现实情况的。同时，此类方法的前提假设是因变量服从正态分布，然而正态分布本身包含从负无穷大到正无穷大的值，因此不太适合模拟比例数据。我们研究的对象数据只能在0到1之间取值。小于0或大于1的值没有意义。</p>
+<p>对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量<a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13234">Douma &amp; Weedon, 2019</a>。</p>
+<p>()</p>
+
     </div>
-    <div class="d-md-none space-below"></div>
-    
-
-    
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Publication</div>
-          <div class="col-12 col-md-9"><em>Sichuan Journal of Zoology</em></div>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
-    </div>
-    <div class="d-md-none space-below"></div>
-    
-
-    <div class="space-below"></div>
-
-    <div class="article-style"><div class="alert alert-note">
-  <div>
-    Click the <em>Cite</em> button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  </div>
-</div>
-<div class="alert alert-note">
-  <div>
-    Click the <em>Slides</em> button above to demo Academic&rsquo;s Markdown slides feature.
-  </div>
-</div>
-<p>Supplementary notes can be added here, including 
-<a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/" target="_blank" rel="noopener">code and math</a>
-.</p>
-</div>
 
     
 
@@ -761,7 +670,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/source-themes/">Source Themes</a>
+  <a class="badge badge-light" href="/tags/academic/">Academic</a>
   
 </div>
 
@@ -778,7 +687,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/publication/2017gibbonmonitorinchina/&amp;text=Population%20Monitoring%20of%20Gibbons%20in%20China" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/betareganddirichleregression/&amp;text=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -791,7 +700,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/publication/2017gibbonmonitorinchina/&amp;t=Population%20Monitoring%20of%20Gibbons%20in%20China" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/betareganddirichleregression/&amp;t=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -804,7 +713,7 @@
       
       
       <li>
-        <a href="mailto:?subject=Population%20Monitoring%20of%20Gibbons%20in%20China&amp;body=/publication/2017gibbonmonitorinchina/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Score%20simulation%20and%20analysis&amp;body=/post/betareganddirichleregression/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -817,7 +726,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/publication/2017gibbonmonitorinchina/&amp;title=Population%20Monitoring%20of%20Gibbons%20in%20China" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/betareganddirichleregression/&amp;title=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -830,7 +739,7 @@
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Population%20Monitoring%20of%20Gibbons%20in%20China%20/publication/2017gibbonmonitorinchina/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Score%20simulation%20and%20analysis%20/post/betareganddirichleregression/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -843,7 +752,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/publication/2017gibbonmonitorinchina/&amp;title=Population%20Monitoring%20of%20Gibbons%20in%20China" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/betareganddirichleregression/&amp;title=Score%20simulation%20and%20analysis" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -876,15 +785,20 @@
   
   
   
+    
+  
   
   
   <div class="media author-card content-widget-hr">
     
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hua4055aeadd5fba0b4baca5f9e0ec575b_38064_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
 
     <div class="media-body">
-      <h5 class="card-title"><a href="/authors/guan-zhenhua/"></a></h5>
-      
-      
+      <h5 class="card-title"><a href="/">Dr. Geebbon</a></h5>
+      <h6 class="card-subtitle">Associated Professor of Behavioral Ecology</h6>
+      <p class="card-text">My research interests include behavior of primates, biostatistics and programmable matter.</p>
       <ul class="network-icon" aria-hidden="true">
   
 </ul>
@@ -906,15 +820,11 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/publication/conference-paper/">An example conference paper</a></li>
+      <li><a href="/post/gibbonsurveyin2018/">Gibbon group suspected existing</a></li>
       
-      <li><a href="/publication/journal-article/">An example journal article</a></li>
+      <li><a href="/post/examinationscoresanalysis/">Score simulation and analysis</a></li>
       
-      <li><a href="/publication/preprint/">An example preprint / working paper</a></li>
-      
-      <li><a href="/publication/2013groomingibbon/">Significance of Grooming Behavior in Two Polygynous Groups of Western Black Crested Gibbons: Implications for Understanding Social Relationships Among Immigrant and Resident Group Members</a></li>
-      
-      <li><a href="/publication/2013gibbonproximity/">Significance of Grooming Behavior in Two Polygynous Groups of Western Black Crested Gibbons: Implications for Understanding Social Relationships Among Immigrant and Resident Group Members</a></li>
+      <li><a href="/post/getting-started/">Academic: the website builder for Hugo</a></li>
       
     </ul>
   </div>
@@ -923,7 +833,7 @@
 
 
   </div>
-</div>
+</article>
 
       
 
