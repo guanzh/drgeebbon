@@ -125,6 +125,35 @@ true
     </item>
     
     <item>
+      <title>Learn how to draw a flower</title>
+      <link>/post/draw_flowers/r/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/draw_flowers/r/</guid>
+      <description>
+
+
+&lt;div id=&#34;学习绘制图形&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;学习绘制图形&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The scientist does not study nature because it is useful; he studies it because he delights in it, and he delights in it because it is beautiful.
+–&lt;em&gt;Henri Poincaré&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自然界中花的性状是可以被数学描述的，其中复杂性包括了很多如对称、分形等特殊形态。&lt;/p&gt;
+&lt;p&gt;首先从绘制一个圆圈开始。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第二步在圆圈的基础上修改为螺旋，即满足斐波那契数列的原则，旋转角度为 &lt;span class=&#34;math inline&#34;&gt;\(\pi*(3-\sqrt{5})\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第三步绘制花瓣颜色和调整大小。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第四步，将花瓣的大小设置为位置的函数，并调整花瓣形状。
+&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第五步，将花瓣的大小设置为位置的函数，并调整花瓣形状，最后结果图。
+&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Beta and Dirichlet regression</title>
       <link>/post/betareganddirichleregression/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
@@ -135,6 +164,40 @@ true
 &lt;p&gt;我们通常会使用线性回归，方差分析等方法来分析此类数据，回归统计在数据分析中非常重要，然而，对于一些比例数据，使用常见的线性回归则有不少弊端，例如，基于常见线性回归的预测结果可能会有负值，显然这是违反现实情况的。同时，此类方法的前提假设是因变量服从正态分布，然而正态分布本身包含从负无穷大到正无穷大的值，因此不太适合模拟比例数据。我们研究的对象数据只能在0到1之间取值。小于0或大于1的值没有意义。&lt;/p&gt;
 &lt;p&gt;对于计数的数据我们可以使用逻辑回归，但将计数的数据转化为连续的比例数据时（如动物行为时间比例），我们则需要选择β和Dirichlet分布对其进行分析。其中β回归用于分析只有一个因变量，而Dirichlet应用于多个因变量&lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13234&#34;&gt;Douma &amp;amp; Weedon, 2019&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;β回归针对的数据是分布于0到1之间的，以比例的形式出现。此外，也有将分布于a到b之间的数据转化为0到1的数据，转化公式为 &lt;span class=&#34;math inline&#34;&gt;\(\frac{y-a}{b-a}\)&lt;/span&gt;。同GLMs一样，β回归也包括3个部分，随机成分，系统成分和链接函数。β回归的假设条件为数据服从于β分布(Balakrishnan &amp;amp; Nevzorov, 2003)，β分布属于指数分布家族一员(Kieschnick &amp;amp; McCullough, 2003)，由2个参数控制。当数据中反应的类型超过2个类型时，β回归则扩展为Dirichlet 回归(Camargo, Stern, &amp;amp; Lauretto, 2012; Gueorguieva, Rosenheck, &amp;amp; Zelterman, 2008; Hijazi &amp;amp; Jernigan, 2009)。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/betaregANDdirichleregression/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Call:
+## DirichReg(formula = y ~ d$temp)
+## 
+## Standardized Residuals:
+##           Min       1Q   Median      3Q     Max
+## eat   -1.6412  -0.9111   0.0193  0.8772  1.6966
+## move  -1.9417  -0.4845   0.2761  0.6464  1.5616
+## rest  -1.4451  -0.6561  -0.1529  0.7039  2.4159
+## 
+## ------------------------------------------------------------------
+## Beta-Coefficients for variable no. 1: eat
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)   
+## (Intercept)  2.29314    0.84588   2.711  0.00671 **
+## d$temp      -0.01073    0.05015  -0.214  0.83060   
+## ------------------------------------------------------------------
+## Beta-Coefficients for variable no. 2: move
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)   
+## (Intercept)  2.83033    0.87585   3.232  0.00123 **
+## d$temp      -0.03987    0.05201  -0.767  0.44334   
+## ------------------------------------------------------------------
+## Beta-Coefficients for variable no. 3: rest
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## (Intercept)  3.86820    0.93367   4.143 3.43e-05 ***
+## d$temp      -0.08244    0.05590  -1.475     0.14    
+## ------------------------------------------------------------------
+## Significance codes: 0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Log-likelihood: 55.23 on 6 df (75 BFGS + 1 NR Iterations)
+## AIC: -98.46, BIC: -91.39
+## Number of Observations: 24
+## Link: Log
+## Parametrization: common&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;此外，在&lt;code&gt;rmd&lt;/code&gt;文件中设置&lt;code&gt;csv&lt;/code&gt;文件路径，只能用相对路径，或者直接输入文件夹中的文件名即可，如&lt;code&gt;mazes &amp;lt;- read_csv(&amp;quot;mazes.csv&amp;quot;)&lt;/code&gt;。&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
