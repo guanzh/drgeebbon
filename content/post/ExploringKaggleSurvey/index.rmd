@@ -1,0 +1,84 @@
+---
+title: Exploring the kaggle survey (Project from datacamp)
+author: admin
+date: '2020-02-18'
+slug: KaggleSurvey2017
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-18T17:41:23+08:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+该调查任务较为简单，主要是提取出使用不同语言的人数进行比较。按照project里面的任务设置，可以分为7个具体步骤，使用`tidyverse`。
+* 1 载入数据
+* 2 对使用工具一列进行清洗
+* 3 使用`str_split`和`str_detect`对使用语言一栏进行筛选汇总
+* 4 对数据进行汇总展示
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Load necessary packages
+library(tidyverse)
+
+# Load the data
+responses <- read_csv('kagglesurvey.csv')
+
+# Add a new column, and unnest the new column
+tools <- responses  %>%
+    mutate(work_tools = str_split(WorkToolsSelect, ','))  %>%
+    unnest(work_tools)
+
+# Group the data by work_tools, summarise the counts, and arrange in descending order
+tool_count <- tools  %>%
+    group_by(work_tools)  %>%
+    summarise(tool_count = n()) %>%
+    arrange(desc(tool_count))
+
+# Create a bar chart of the work_tools column, most counts on the far right
+ggplot(tool_count, aes(x=fct_reorder(work_tools, tool_count),y=work_tools)) +
+    geom_bar(stat = "identity") +
+    theme(axis.text.x = element_text(angle=90))
+
+# Create a new column called language preference
+debate_tools <- responses  %>%
+   mutate(language_preference = case_when(
+        str_detect(WorkToolsSelect, "R") & ! str_detect(WorkToolsSelect, "Python") ~ "R",
+        str_detect(WorkToolsSelect, "Python") & ! str_detect(WorkToolsSelect, "R") ~ "Python",
+        str_detect(WorkToolsSelect, "R") & str_detect(WorkToolsSelect, "Python") ~ "both",
+        TRUE ~ "neither"
+  ))
+
+
+# Group by language preference, calculate number of responses, and remove "neither"
+debate_plot <- debate_tools  %>%
+   group_by(language_preference)  %>%
+   summarise(count=n())  %>%
+    filter(language_preference!='neither')
+
+# Create a bar chart
+ggplot(debate_plot,aes(x=language_preference,y=count))+
+   geom_bar(stat="identity")
+
+
+# Group by, summarise, arrange, mutate, and filter
+recommendations  <- debate_tools  %>%
+    group_by(language_preference, LanguageRecommendationSelect)  %>%
+    summarise(count = n() ) %>%
+    arrange(language_preference,desc(count)) %>%
+    mutate(row = row_number())  %>%
+    filter(row <= 4)
+
+
+# Create a faceted bar plot
+ggplot(recommendations, aes(x=LanguageRecommendationSelect, y=count)) +
+    geom_bar(stat="identity")+
+    facet_wrap(.~language_preference)
+
+```

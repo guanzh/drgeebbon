@@ -125,10 +125,27 @@ true
     </item>
     
     <item>
+      <title>Exploring the kaggle survey (Project from datacamp)</title>
+      <link>/post/kagglesurvey2017/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/kagglesurvey2017/</guid>
+      <description>
+
+
+&lt;p&gt;该调查任务较为简单，主要是提取出使用不同语言的人数进行比较。按照project里面的任务设置，可以分为7个具体步骤，使用&lt;code&gt;tidyverse&lt;/code&gt;。
+* 1 载入数据
+* 2 对使用工具一列进行清洗
+* 3 使用&lt;code&gt;str_split&lt;/code&gt;和&lt;code&gt;str_detect&lt;/code&gt;对使用语言一栏进行筛选汇总
+* 4 对数据进行汇总展示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ExploringKaggleSurvey/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/ExploringKaggleSurvey/index_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/ExploringKaggleSurvey/index_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Learn how to draw a flower</title>
-      <link>/post/draw_flowers/r/</link>
+      <link>/post/rdrawflower/</link>
       <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/post/draw_flowers/r/</guid>
+      <guid>/post/rdrawflower/</guid>
       <description>
 
 
@@ -140,15 +157,15 @@ true
 &lt;/blockquote&gt;
 &lt;p&gt;自然界中花的性状是可以被数学描述的，其中复杂性包括了很多如对称、分形等特殊形态。&lt;/p&gt;
 &lt;p&gt;首先从绘制一个圆圈开始。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;第二步在圆圈的基础上修改为螺旋，即满足斐波那契数列的原则，旋转角度为 &lt;span class=&#34;math inline&#34;&gt;\(\pi*(3-\sqrt{5})\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;第三步绘制花瓣颜色和调整大小。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/draw_flowers/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;第四步，将花瓣的大小设置为位置的函数，并调整花瓣形状。
-&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;/post/draw_flowers/index_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;第五步，将花瓣的大小设置为位置的函数，并调整花瓣形状，最后结果图。
-&lt;img src=&#34;/post/draw_flowers/drawflowers_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;/post/draw_flowers/index_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

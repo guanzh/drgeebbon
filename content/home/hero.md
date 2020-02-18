@@ -54,4 +54,4 @@ hero_media = "hero-academic.png"
 **Learning from animals**
 
 
-***Update: betareg post***
+[***Update: two posts for datacamp projects***](https://drgeebbon.netlify.com/post/)
