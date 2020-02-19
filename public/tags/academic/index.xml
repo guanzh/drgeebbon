@@ -59,7 +59,8 @@ ggp_temperature &amp;lt;- climate_df %&amp;gt;%
 # Display the map
 ggp_temperature
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./mapmintemp.png&#34; alt=&#34;图示出地图，并用颜色显示最低温度&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./mapmintemp.png&#34; alt=&#34;图示出地图，并用颜色显示最低温度&#34;&gt;
+图示出地图，并用颜色显示最低温度&lt;/p&gt;
 &lt;p&gt;第二步，通过GBIF获得鸟类分布数据，并清洗数据筛选出时间范围和气候时间变化范围匹配的数据。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;occ_search &amp;lt;- function(
   scientificName,
@@ -207,7 +208,8 @@ ggp_changemap &amp;lt;- ggplot(climate_df, aes(x=x, y=y))+
 # Display the plot
 ggp_changemap
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./pred.png&#34; alt=&#34;按照时间绘制出10年间隔的最小温度变化图&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./pred.png&#34; alt=&#34;按照时间绘制出10年间隔的最小温度变化图&#34;&gt;
+按照时间绘制出10年间隔的最小温度变化图&lt;/p&gt;
 </description>
     </item>
     

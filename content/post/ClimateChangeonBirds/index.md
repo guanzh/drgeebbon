@@ -66,7 +66,7 @@ ggp_temperature
 ```
 
 ![图示出地图，并用颜色显示最低温度](./mapmintemp.png)
-
+图示出地图，并用颜色显示最低温度
 
 第二步，通过GBIF获得鸟类分布数据，并清洗数据筛选出时间范围和气候时间变化范围匹配的数据。
 
@@ -231,3 +231,4 @@ ggp_changemap <- ggplot(climate_df, aes(x=x, y=y))+
 ggp_changemap
 ```
 ![按照时间绘制出10年间隔的最小温度变化图](./pred.png)
+按照时间绘制出10年间隔的最小温度变化图
