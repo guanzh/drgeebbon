@@ -1,16 +1,17 @@
 ---
-title: 对班级同学的谈话
-subtitle: 关于解决『知道』问题和学习网课
-summary: 关于解决『知道』问题和学习网课
+title: '对班级同学的谈话——关于解决知道什么和网课学习'
+subtitle: '知道什么和网课学习'
+summary:
 authors:
 - admin
-tags: [talk]
-categories: []
+tags:
+- Academic
+categories:
+- Demo
 date: "2020-02-19T17:00:00Z"
-lastMod: "2020-02-19T17:00:00Z"
+lastmod: "2020-02-19T17:00:00Z"
 featured: false
 draft: false
-
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
@@ -25,6 +26,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
 
 在上学期，很多同学告诉我说：我还不知道自己喜欢什么，或者是我还不知道自己想要什么。我通常的回答方式是，你还没有好好想过。
 
