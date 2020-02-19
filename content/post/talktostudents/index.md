@@ -1,29 +1,19 @@
 ---
-title: '对班级同学的谈话——关于解决知道什么和网课学习'
-subtitle: '知道什么和网课学习'
-summary:
-authors:
-- admin
-tags:
-- Academic
-categories:
-- Demo
-date: "2020-02-19T17:00:00Z"
-lastmod: "2020-02-19T17:00:00Z"
-featured: false
-draft: false
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
+title: About learning
+author: ~
+date: '2020-02-19'
+slug: about-learning
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-19T17:32:24+08:00'
+featured: no
 image:
-  caption: ""
-  focal_point: ""
-
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references
-#   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
+  caption: ''
+  focal_point: ''
+  preview_only: no
 projects: []
 ---
 
