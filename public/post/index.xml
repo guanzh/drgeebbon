@@ -5,12 +5,211 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>气候变化对鸟类的影响分析</title>
+      <link>/post/climatechangeonbirds/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/climatechangeonbirds/</guid>
+      <description>&lt;h1 id=&#34;气候变化对鸟类的影响分析&#34;&gt;气候变化对鸟类的影响分析&lt;/h1&gt;
+&lt;h2 id=&#34;learning-from-datacamphttpsprojectsdatacampcomprojects664&#34;&gt;
+&lt;a href=&#34;https://projects.datacamp.com/projects/664&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Learning from datacamp&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;全球范围的气候变化如何影响动物是一个关于生物多样性的热点问题，我们希望知道如果气候持续变化，鸟类的迁徙会受到怎样的影响。&lt;/p&gt;
+&lt;p&gt;我们使用GBIF的鸟类监测数据，通过ML建模预测苏格兰交嘴雀（英语：Scottish Crossbill、学名：&lt;em&gt;Loxia scotica&lt;/em&gt;）的分布。&lt;/p&gt;
+&lt;p&gt;第一步，关键步骤是获得合适的气候数据，并将其转化为&lt;code&gt;spdf&lt;/code&gt;的数据格式，保证有&lt;code&gt;dataframe&lt;/code&gt;的经纬度数据使用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Load in the tidyverse, raster, and sf packages
+library(tidyverse)
+library(raster)
+library(sf)
+
+# Read the climate data from an rds file
+climate  &amp;lt;- read_rds(&amp;quot;climate_raster.rds&amp;quot;)
+
+# Have a look at the variables in the climate data
+# colnames(climate)
+
+# Convert to SpatialPixelDataFrame for plotting
+climate_df &amp;lt;- mutate(
+  .data = climate,
+  rasters = map(
+    .x = rasters,
+    ~ as_tibble(as(.x, &amp;quot;SpatialPixelsDataFrame&amp;quot;)))) %&amp;gt;%
+  unnest(cols = c(rasters))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggthemes)
+
+# Filter the data to plot
+ggp_temperature &amp;lt;- climate_df %&amp;gt;%
+  filter(decade %in% c(&#39;1970&#39;,&#39;2010&#39;)) %&amp;gt;%
+  # Create the plot
+  ggplot(aes(x = x, y = y)) + geom_tile(aes(fill = minimum.temperature)) +
+  # Style the plot with options ideal for maps
+  theme_map() + coord_equal() +
+  facet_grid(~ decade) + scale_fill_distiller(palette = &amp;quot;Spectral&amp;quot;) +
+  theme(legend.title = element_blank(), legend.position = &amp;quot;bottom&amp;quot;) +
+  labs(title = &amp;quot;Minimum of Average Monthly Temperature (Celsius)&amp;quot;, caption = &#39;Source: MetOffice UK&#39;)
+
+# Display the map
+ggp_temperature
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./mapmintemp.png&#34; alt=&#34;图示出地图，并用颜色显示最低温度&#34;&gt;&lt;/p&gt;
+&lt;p&gt;第二步，通过GBIF获得鸟类分布数据，并清洗数据筛选出时间范围和气候时间变化范围匹配的数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;occ_search &amp;lt;- function(
+  scientificName,
+  country,
+  hasCoordinate,
+  hasGeospatialIssue,
+  limit) {
+  if (scientificName == &amp;quot;Loxia scotica&amp;quot; &amp;amp;
+      country == &amp;quot;GB&amp;quot; &amp;amp;
+      hasCoordinate == TRUE &amp;amp;
+      hasGeospatialIssue == FALSE &amp;amp;
+      limit == 2000) {
+    Sys.sleep(2)
+    data &amp;lt;- read_rds(&amp;quot;datasets/gbif_response.rds&amp;quot;)
+  } else {
+    stop(&amp;quot;incorrect arguments to function&amp;quot;)
+  }
+}
+
+
+library(rgbif)
+
+# Call the API to get the occurrence records of this species
+gbif_response &amp;lt;- occ_search(
+  scientificName = &amp;quot;Loxia scotica&amp;quot;, country = &amp;quot;GB&amp;quot;,
+  hasCoordinate = TRUE, hasGeospatialIssue = FALSE, limit = 2000)
+
+# Inspect the class and names of gbif_response
+class(gbif_response)
+names(gbif_response)
+# Print the first six lines of the data element in gbif_response
+head(gbif_response$data, 6)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第三步，从时间序列中提取出来年作为用于机器学习的变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(lubridate)
+
+birds_dated &amp;lt;- mutate(
+  .data = gbif_response$data,
+  # Create a new column specifying the decade of observation
+  decade = ymd_hms(eventDate) %&amp;gt;% round_date(&amp;quot;10y&amp;quot;) %&amp;gt;% year())
+
+birds_cleaned &amp;lt;- birds_dated %&amp;gt;%
+  filter(
+    issues == &amp;quot;&amp;quot; &amp;amp;
+    str_detect(license, &amp;quot;http://creativecommons.org/&amp;quot;) &amp;amp;
+    # No records before 1970s decade or after 2010s decade
+    ((1970 &amp;lt;= decade) &amp;amp; (decade &amp;lt;= 2010))
+  ) %&amp;gt;%
+  transmute(decade = decade, x = decimalLongitude, y = decimalLatitude) %&amp;gt;%
+  arrange(decade)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第四步，对数据进行整合，将气候数据和鸟类数据按照时间进行链接。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;birds_nested &amp;lt;- birds_cleaned  %&amp;gt;%
+    group_by(decade) %&amp;gt;%
+    nest( .key = &#39;presences&#39;)
+
+
+# Calculate the total number of records per decade
+birds_counted &amp;lt;- birds_nested %&amp;gt;%
+  mutate(n = map_dbl(presences,nrow))
+
+# Define geographical projections
+proj_latlon &amp;lt;- st_crs(&amp;quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&amp;quot;)
+proj_ukgrid &amp;lt;- st_crs(&amp;quot;+init=epsg:27700&amp;quot;)
+
+# Convert records to spatial points and project them
+birds_presences &amp;lt;- mutate(birds_counted,
+  presences = map(presences, ~ .x %&amp;gt;%
+    # Specify the current projection
+    st_as_sf(coords = c(&amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;), crs = proj_latlon) %&amp;gt;%
+    # Transform to new projection
+    st_transform(crs = proj_ukgrid)))
+
+# Combine the bird data and the climate data in one data frame
+birds_climate &amp;lt;- full_join(birds_presences, climate, by = &#39;decade&#39;)
+
+presence_data &amp;lt;- map2_df(
+  .x = birds_climate[[&amp;quot;rasters&amp;quot;]],
+  .y = birds_climate[[&amp;quot;presences&amp;quot;]],
+  # extract the raster values at presence locations
+  ~ raster::extract(.x,.y) %&amp;gt;%
+    as_tibble() %&amp;gt;%
+    mutate(observation = &amp;quot;presence&amp;quot;))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第五步，随机设置出鸟类分布的缺失数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Define helper function for creating pseudo-absence data
+create_pseudo_absences &amp;lt;- function(rasters, n, ...) {
+    set.seed(12345)
+    sampleRandom(rasters, size = n * 5, sp = TRUE) %&amp;gt;%
+    raster::extract(rasters, .) %&amp;gt;% as_tibble() %&amp;gt;%
+    mutate(observation = &amp;quot;pseudo_absence&amp;quot;)
+}
+
+# Create pseudo-absence proportional to the total number of records per decade
+pseudo_absence_data &amp;lt;- pmap_df(.l = birds_climate, .f = create_pseudo_absences)
+
+# Combine the two datasets
+model_data &amp;lt;- full_join(presence_data, pseudo_absence_data) %&amp;gt;%
+  mutate(observation = factor(observation)) %&amp;gt;% na.omit()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第六步，训练模型，并使用预测值在年度上的变化。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+# Load caret and set a reproducible seed
+library(caret)
+set.seed(12345)
+
+# Create a tuning grid with sets of hyperparameters to try
+tuneGrid &amp;lt;- expand.grid(alpha = c(0, 0.5, 1), lambda = c(.003, .01, .03, .06))
+
+# Create settings for model training
+trControl &amp;lt;- trainControl(method = &#39;repeatedcv&#39;, number = 5, repeats = 1,
+  classProbs = TRUE, verboseIter = FALSE, summaryFunction = twoClassSummary)
+
+# Fit a statistical model to the data and plot
+model_fit &amp;lt;- train(
+  observation ~ ., data = model_data,
+  method = &amp;quot;glmnet&amp;quot;, family = &amp;quot;binomial&amp;quot;, metric = &amp;quot;ROC&amp;quot;,
+  tuneGrid = tuneGrid, trControl = trControl)
+
+plot(model_fit)
+
+# Use our model to make a prediction
+climate_df[[&amp;quot;prediction&amp;quot;]] &amp;lt;- predict(
+    object = model_fit,
+    newdata = climate_df,
+    type = &amp;quot;prob&amp;quot;)[[&amp;quot;presence&amp;quot;]]
+
+head(climate_df)
+
+library(viridis)
+
+# Create the plot
+ggp_changemap &amp;lt;- ggplot(climate_df, aes(x=x, y=y))+
+  geom_tile(aes(fill = minimum.temperature)) +
+  # Style the plot with the appropriate settings for a map
+  theme_map() + coord_equal() +facet_grid(~ decade) +
+  scale_fill_viridis(option = &amp;quot;A&amp;quot;) + theme(legend.position = &amp;quot;bottom&amp;quot;) +
+  # Add faceting by decade
+  labs(title = &#39;Habitat Suitability&#39;, subtitle = &#39;by decade&#39;,
+       caption = &#39;Source:\nGBIF data and\nMetOffice UK climate data&#39;,
+       fill = &#39;Habitat Suitability [0 low - high 1]&#39;)
+
+
+# Display the plot
+ggp_changemap
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./pred.png&#34; alt=&#34;按照时间绘制出10年间隔的最小温度变化图&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Exploring the kaggle survey (Project from datacamp)</title>

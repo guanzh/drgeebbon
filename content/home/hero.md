@@ -54,4 +54,4 @@ hero_media = "hero-academic.png"
 **Learning from animals**
 
 
-[***Update: two posts for datacamp projects***](https://drgeebbon.netlify.com/post/)
+[***Update: climate impact on birds post from datacamp projects***](https://drgeebbon.netlify.com/post/)
