@@ -125,6 +125,30 @@ true
     </item>
     
     <item>
+      <title>在哪里跑出租车能赚钱</title>
+      <link>/post/predicttaxifareswithrandomforests/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/predicttaxifareswithrandomforests/</guid>
+      <description>
+
+
+&lt;div id=&#34;使用ml预测怎么跑出租车最赚钱&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;使用ML预测怎么跑出租车最赚钱&lt;/h2&gt;
+&lt;p&gt;出租车的数据有接客的地点和终点，显而易见，起点位置是盈利的开始，用起点的经纬度来绘制地图，可以看出Manhattan的城市中心是最多拉到客人的地方。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;pickuplocation.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;地点是否影响了收入&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;地点是否影响了收入？&lt;/h2&gt;
+&lt;p&gt;建立tree模型来分析地点对于收入的影响，图显示城市南边的出租车收入更高一点。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onetree.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;除了地点以外，时间是否能够影响收入，在上面的树模型上加入时间变量，包括小时，日期，月份和周末，结果没有发生变化，所以可以判断影响出租车收入的只有纬度数据。使用上面的关系式引入随机森林模型，进行调参预测。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;pickuppred.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;预测结果是很明显的，城南的出租车收入显著高出城北区域0.4美元。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>About learning</title>
       <link>/post/about-learning/</link>
       <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
