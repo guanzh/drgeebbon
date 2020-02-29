@@ -28,18 +28,11 @@
   
     
   
-  <meta name="description" content=" 一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。
-碎石图
- 此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度
-贡献率
- 依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。
-在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。
-主成分分析
- 附简易代码
- head(iris) ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings &lt;- ir.pca$rotation scores &lt;- ir.pca$x plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;) ev &lt;- ir.pca$sdev^2 source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;) evplot(ev) library(&quot;ggbiplot&quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  ">
+  <meta name="description" content="使用str_detect搜索文本中的目标模式，如’cat’以’c’开头的搜索方法为 str_detect(&#39;cat&#39;, &#39;^c&#39;)，如’cat’以’t’结尾的搜索方法为 str_detect(&#39;cat&#39;, &#39;c$&#39;)。^放在pattern的前面，$放在后面。
+# Here&#39;s an example pattern that will find the movie Saw 4 str_match(movie_titles, pattern = &quot;Saw 4&quot;) # Match all sequels of the movie &quot;Saw&quot; str_match(movie_titles, pattern = &quot;Saw..&quot;) # Match the letter K and three arbitrary characters str_match(movie_titles, pattern = &quot;^K...&quot;) # Detect whether the movie titles end with a full stop str_detect(movie_titles, pattern = &quot;\\.$&quot;) # List all movies that end with a space and a digit movie_titles[str_detect(movie_titles, pattern = &quot;\\s\\d$&quot; )] # List all movies that contain &quot;Grey&quot; or &quot;Gray&quot; movie_titles[str_detect(movie_titles, pattern = &quot;Gr[ae]y&quot; )] # List all movies with strange characters (no word or space) movie_titles[str_detect(movie_titles, pattern = &quot;[^\\w\\s]&quot; )] # This lists all movies with two or more digits in a row movie_titles[str_detect( movie_titles, pattern = &quot;\\d{2,}&quot; )] # List just the first words of every movie title `str_match(movie_titles, pattern = &quot;\\w&#43;&quot;) ` # Match everything that comes before &quot;Knight&quot; `str_match(movie_titles, pattern = &quot;.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/test/">
+  <link rel="alternate" hreflang="en-us" href="/post/reinr/">
 
   
 
@@ -226,7 +219,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/test/">
+  <link rel="canonical" href="/post/reinr/">
 
   
   
@@ -234,28 +227,22 @@
   
   
     
+    
   
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="GibbonLearning">
-  <meta property="og:url" content="/post/test/">
-  <meta property="og:title" content="PCA Short Explain | GibbonLearning">
-  <meta property="og:description" content=" 一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。
-碎石图
- 此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度
-贡献率
- 依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。
-在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。
-主成分分析
- 附简易代码
- head(iris) ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings &lt;- ir.pca$rotation scores &lt;- ir.pca$x plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;) ev &lt;- ir.pca$sdev^2 source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;) evplot(ev) library(&quot;ggbiplot&quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  "><meta property="og:image" content="/post/test/featured.png">
-  <meta property="twitter:image" content="/post/test/featured.png"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="/post/reinr/">
+  <meta property="og:title" content="Regular Expression using R | GibbonLearning">
+  <meta property="og:description" content="使用str_detect搜索文本中的目标模式，如’cat’以’c’开头的搜索方法为 str_detect(&#39;cat&#39;, &#39;^c&#39;)，如’cat’以’t’结尾的搜索方法为 str_detect(&#39;cat&#39;, &#39;c$&#39;)。^放在pattern的前面，$放在后面。
+# Here&#39;s an example pattern that will find the movie Saw 4 str_match(movie_titles, pattern = &quot;Saw 4&quot;) # Match all sequels of the movie &quot;Saw&quot; str_match(movie_titles, pattern = &quot;Saw..&quot;) # Match the letter K and three arbitrary characters str_match(movie_titles, pattern = &quot;^K...&quot;) # Detect whether the movie titles end with a full stop str_detect(movie_titles, pattern = &quot;\\.$&quot;) # List all movies that end with a space and a digit movie_titles[str_detect(movie_titles, pattern = &quot;\\s\\d$&quot; )] # List all movies that contain &quot;Grey&quot; or &quot;Gray&quot; movie_titles[str_detect(movie_titles, pattern = &quot;Gr[ae]y&quot; )] # List all movies with strange characters (no word or space) movie_titles[str_detect(movie_titles, pattern = &quot;[^\\w\\s]&quot; )] # This lists all movies with two or more digits in a row movie_titles[str_detect( movie_titles, pattern = &quot;\\d{2,}&quot; )] # List just the first words of every movie title `str_match(movie_titles, pattern = &quot;\\w&#43;&quot;) ` # Match everything that comes before &quot;Knight&quot; `str_match(movie_titles, pattern = &quot;."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-02-03T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-02-29T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2020-02-03T17:41:23&#43;08:00">
+    <meta property="article:modified_time" content="2020-02-29T08:41:23&#43;08:00">
   
 
   
@@ -281,16 +268,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/test/"
+    "@id": "/post/reinr/"
   },
-  "headline": "PCA Short Explain",
+  "headline": "Regular Expression using R",
   
-  "image": [
-    "/post/test/featured.png"
-  ],
-  
-  "datePublished": "2020-02-03T00:00:00Z",
-  "dateModified": "2020-02-03T17:41:23+08:00",
+  "datePublished": "2020-02-29T00:00:00Z",
+  "dateModified": "2020-02-29T08:41:23+08:00",
   
   "author": {
     "@type": "Person",
@@ -305,7 +288,7 @@
       "url": "img//"
     }
   },
-  "description": " 一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。\n碎石图\n 此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度\n贡献率\n 依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。\n在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。\n主成分分析\n 附简易代码\n head(iris) ir.pca \u0026lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE) summary(ir.pca) loadings \u0026lt;- ir.pca$rotation scores \u0026lt;- ir.pca$x plot(ir.pca, type = \u0026quot;l\u0026quot;,main=\u0026quot;\u0026quot;) ev \u0026lt;- ir.pca$sdev^2 source (\u0026#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code\u0026amp;codeblock=1\u0026#39;) evplot(ev) library(\u0026quot;ggbiplot\u0026quot;) ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1) ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)  "
+  "description": "使用str_detect搜索文本中的目标模式，如’cat’以’c’开头的搜索方法为 str_detect('cat', '^c')，如’cat’以’t’结尾的搜索方法为 str_detect('cat', 'c$')。^放在pattern的前面，$放在后面。\n# Here\u0026#39;s an example pattern that will find the movie Saw 4 str_match(movie_titles, pattern = \u0026quot;Saw 4\u0026quot;) # Match all sequels of the movie \u0026quot;Saw\u0026quot; str_match(movie_titles, pattern = \u0026quot;Saw..\u0026quot;) # Match the letter K and three arbitrary characters str_match(movie_titles, pattern = \u0026quot;^K...\u0026quot;) # Detect whether the movie titles end with a full stop str_detect(movie_titles, pattern = \u0026quot;\\\\.$\u0026quot;) # List all movies that end with a space and a digit movie_titles[str_detect(movie_titles, pattern = \u0026quot;\\\\s\\\\d$\u0026quot; )] # List all movies that contain \u0026quot;Grey\u0026quot; or \u0026quot;Gray\u0026quot; movie_titles[str_detect(movie_titles, pattern = \u0026quot;Gr[ae]y\u0026quot; )] # List all movies with strange characters (no word or space) movie_titles[str_detect(movie_titles, pattern = \u0026quot;[^\\\\w\\\\s]\u0026quot; )] # This lists all movies with two or more digits in a row movie_titles[str_detect( movie_titles, pattern = \u0026quot;\\\\d{2,}\u0026quot; )] # List just the first words of every movie title `str_match(movie_titles, pattern = \u0026quot;\\\\w+\u0026quot;) ` # Match everything that comes before \u0026quot;Knight\u0026quot; `str_match(movie_titles, pattern = \u0026quot;."
 }
 </script>
 
@@ -323,7 +306,7 @@
 
 
 
-  <title>PCA Short Explain | GibbonLearning</title>
+  <title>Regular Expression using R | GibbonLearning</title>
 
 </head>
 
@@ -550,26 +533,18 @@
 
 
 
-
-
-
-
-
-
-
+  
 
   
+  
+  
+<div class="article-container pt-3">
+  <h1>Regular Expression using R</h1>
+
+  
+
   
     
-  
-
-
-<div class="article-container pt-3">
-  <h1>PCA Short Explain</h1>
-
-  
-
-  
 
 
 <div class="article-metadata">
@@ -585,7 +560,7 @@
           Last updated on
       
     
-    Feb 3, 2020
+    Feb 29, 2020
   </span>
   
 
@@ -594,7 +569,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
@@ -607,29 +582,22 @@
 
 </div>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 562px;">
-  <div style="position: relative">
-    <img src="/post/test/featured_hu31808692f15bcb808dce3770d2ee5bd5_81531_720x0_resize_lanczos_2.png" alt="" class="featured-image">
     
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
 
@@ -640,46 +608,160 @@
       
 
 
-<p>一般来说，PCA分析2个图够了，以iris数据为例，在经过PCA分析后，我们可以得到第一章碎石图，表示PC1，2，3，4的特征向量值，可以据此选择保留的主成分（通常选择特征向量值超过2的变量），此图显示出1个主成分可以保留。</p>
-<div class="figure">
-<img src="1817671-f39056b2a8a39add.png" alt="碎石图" />
-<p class="caption"><em>碎石图</em></p>
-</div>
-<p>此外，可以有另外2个基于特征向量值选择主成分的标准，即 Kaiser-Guttman 标准和 Broken Stick 标准，这些标准可以反应主成分对于解释原始数据的贡献程度</p>
-<div class="figure">
-<img src="1817671-f115189a5c07d722.png" alt="贡献率" />
-<p class="caption"><em>贡献率</em></p>
-</div>
-<p>依据Kaiser-Guttman 标准，仅应该保留主成分1，上图中仅PC1超过了平均值，下图中仅PC1超过了红色柱形图。</p>
-<p>在选择了PC后，需要考虑变量对于PC的贡献，下图中，Petal Length，Width， Sepal Length对于PC1的贡献大，即方向偏向x轴方向；而Sepal width对PC2的贡献大，方向偏向y轴。长度越长，相对影响越大。</p>
-<div class="figure">
-<img src="featured.png" alt="主成分分析" />
-<p class="caption"><em>主成分分析</em></p>
-</div>
-<p>附简易代码</p>
-<pre><code>
-head(iris)
+<p>使用<code>str_detect</code>搜索文本中的目标模式，如’cat’以’c’开头的搜索方法为 <code>str_detect('cat', '^c')</code>，如’cat’以’t’结尾的搜索方法为 <code>str_detect('cat', 'c$')</code>。<code>^</code>放在pattern的前面，<code>$</code>放在后面。</p>
+<pre><code># Here&#39;s an example pattern that will find the movie Saw 4
+str_match(movie_titles, pattern = &quot;Saw 4&quot;)
 
-ir.pca &lt;- prcomp(iris[,1:4], center=TRUE, scale. = TRUE)
+# Match all sequels of the movie &quot;Saw&quot;
+str_match(movie_titles, pattern = &quot;Saw..&quot;)
 
-summary(ir.pca)
+# Match the letter K and three arbitrary characters
+str_match(movie_titles, pattern = &quot;^K...&quot;)
 
-loadings &lt;- ir.pca$rotation
+# Detect whether the movie titles end with a full stop
+str_detect(movie_titles, pattern = &quot;\\.$&quot;)
 
-scores &lt;- ir.pca$x
+# List all movies that end with a space and a digit
+movie_titles[str_detect(movie_titles,
+  pattern = &quot;\\s\\d$&quot;
+)]
 
-plot(ir.pca, type = &quot;l&quot;,main=&quot;&quot;)
+# List all movies that contain &quot;Grey&quot; or &quot;Gray&quot;
+movie_titles[str_detect(movie_titles,
+  pattern = &quot;Gr[ae]y&quot;
+)]
 
-ev &lt;- ir.pca$sdev^2
+# List all movies with strange characters (no word or space)
+movie_titles[str_detect(movie_titles,
+  pattern = &quot;[^\\w\\s]&quot;
+)]
 
-source (&#39;http://www.davidzeleny.net/anadatr/doku.php/en:numecolr:evplot?do=export_code&amp;codeblock=1&#39;)
-evplot(ev)
+# This lists all movies with two or more digits in a row
+movie_titles[str_detect(
+  movie_titles,
+  pattern = &quot;\\d{2,}&quot;
+)]
 
-library(&quot;ggbiplot&quot;)
+# List just the first words of every movie title
+`str_match(movie_titles, pattern = &quot;\\w+&quot;)
+`
+# Match everything that comes before &quot;Knight&quot;
+`str_match(movie_titles, pattern = &quot;.*Knight&quot;)`
 
-ggbiplot(ir.pca, choices=c(1,2), obs.scale = 1, var.scale = 1)
 
-ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, ellipse = TRUE)
+# Append the three options: Match Nemo, Harmony or Dory
+str_view(lines, pattern = &quot;Finding Nemo|Harmony|Dory&quot;)
+
+# Wrap the three options in parentheses and compare the results
+str_view(lines, pattern = &quot;Finding (Nemo|Harmony|Dory)&quot;)
+
+# Use the pattern from above that matched the whole movie names
+str_match(lines, pattern = &quot;Finding (Nemo|Harmony|Dory)&quot;)
+
+
+# Match both Screen and Screens by making the last &quot;s&quot; optional
+str_match(lines, pattern = &quot;Screens?&quot;)
+
+# Match a random amount of arbitrary characters, followed by a comma
+`str_match(lines, pattern = &quot;.*,&quot;)
+`
+
+# Match the same pattern followed by a comma, but the &quot;lazy&quot; way
+`str_match(lines, pattern = &quot;.*?,&quot;)
+`
+
+
+# Create two temporary variables &quot;n&quot; and &quot;m&quot; and use them
+glue(
+  &quot;The data frame &#39;users&#39; has {n} rows and {m} columns.&quot;,
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %&gt;% mutate(
+  n_logins = glue(&quot;{name} logged in {logins} times.&quot;)
+)
+
+# Create two temporary variables &quot;n&quot; and &quot;m&quot; and use them
+glue(
+  &quot;The data frame &#39;users&#39; has {n} rows and {m} columns.&quot;,
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %&gt;% mutate(
+  n_logins = glue(&quot;{name} logged in {logins} times.&quot;)
+)
+
+# List colnames separated a comma and a white space
+glue_collapse(colnames(users), sep = &quot;, &quot;)
+
+# Use &quot; and &quot; as a separator for the last elements
+glue(
+  &quot;Our users are called {names}.&quot;,
+  names = glue_collapse(users$name, sep = &quot;, &quot;, last = &quot; and &quot;)
+)
+
+# Use the same way to output also the &quot;logins&quot; of the users
+glue(
+  &quot;Our users have logged in {logins} times.&quot;,
+  logins = glue_collapse(users$logins, sep = &quot;, &quot;, last = &quot; and &quot;)
+)
+
+# Split the input by line break and enable simplify
+top_10_lines &lt;- str_split(
+  top_10,
+  pattern = &quot;\\n&quot;,
+  simplify = TRUE
+)
+
+# Inspect the first three lines and analyze their form
+top_10_lines[1:3]
+
+# Add to the pattern two capturing groups that match rank and title
+str_match(
+  top_10_lines,
+  pattern = &quot;(\\d+)\\. (.+)&quot;
+)
+
+# Remove a space followed by &quot;3D&quot; at the end of the line
+str_replace(
+  top_10_lines,
+  pattern = &quot; 3D$&quot;,
+  replacement = &quot;&quot;
+)
+
+# Use backreferences 2 and 1 to create a new sentence
+`str_replace(
+  top_10_lines,
+  pattern = &quot;(\\d+)\\. (.*)&quot;,
+  replacement = &quot;\\2 is at rank \\1&quot;
+)
+`
+
+# Create our polit_pattern again by collapsing &quot;politicians&quot;
+polit_pattern &lt;- glue_collapse(politicians, sep = &quot;|&quot;)
+
+# Match one or more word characters or punctuations
+context &lt;- &quot;([\\w[:punct:]]+\\s){0,10}&quot;
+
+# Add this pattern in front and after the polit_pattern
+polit_pattern_with_context &lt;- glue(
+  &quot;{context}({polit_pattern})\\s?{context}&quot;
+)
+
+str_extract_all(
+  articles$text,
+  pattern = polit_pattern_with_context
+)
 </code></pre>
 
     </div>
@@ -703,7 +785,7 @@ ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, e
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/test/&amp;text=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/reinr/&amp;text=Regular%20Expression%20using%20R" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -716,7 +798,7 @@ ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, e
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/test/&amp;t=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/reinr/&amp;t=Regular%20Expression%20using%20R" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -729,7 +811,7 @@ ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, e
       
       
       <li>
-        <a href="mailto:?subject=PCA%20Short%20Explain&amp;body=/post/test/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Regular%20Expression%20using%20R&amp;body=/post/reinr/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -742,7 +824,7 @@ ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, e
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/test/&amp;title=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/reinr/&amp;title=Regular%20Expression%20using%20R" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -755,7 +837,7 @@ ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, e
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=PCA%20Short%20Explain%20/post/test/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Regular%20Expression%20using%20R%20/post/reinr/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -768,7 +850,7 @@ ggbiplot(ir.pca,choices=c(1,2), groups=iris[,5], obs.scale = 1, var.scale = 1, e
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/test/&amp;title=PCA%20Short%20Explain" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/reinr/&amp;title=Regular%20Expression%20using%20R" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

@@ -1,0 +1,176 @@
+---
+title: Regular Expression using R
+author: admin
+date: '2020-02-29'
+slug: reInR
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-29T08:41:23+08:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>使用<code>str_detect</code>搜索文本中的目标模式，如’cat’以’c’开头的搜索方法为 <code>str_detect('cat', '^c')</code>，如’cat’以’t’结尾的搜索方法为 <code>str_detect('cat', 'c$')</code>。<code>^</code>放在pattern的前面，<code>$</code>放在后面。</p>
+<pre><code># Here&#39;s an example pattern that will find the movie Saw 4
+str_match(movie_titles, pattern = &quot;Saw 4&quot;)
+
+# Match all sequels of the movie &quot;Saw&quot;
+str_match(movie_titles, pattern = &quot;Saw..&quot;)
+
+# Match the letter K and three arbitrary characters
+str_match(movie_titles, pattern = &quot;^K...&quot;)
+
+# Detect whether the movie titles end with a full stop
+str_detect(movie_titles, pattern = &quot;\\.$&quot;)
+
+# List all movies that end with a space and a digit
+movie_titles[str_detect(movie_titles,
+  pattern = &quot;\\s\\d$&quot;
+)]
+
+# List all movies that contain &quot;Grey&quot; or &quot;Gray&quot;
+movie_titles[str_detect(movie_titles,
+  pattern = &quot;Gr[ae]y&quot;
+)]
+
+# List all movies with strange characters (no word or space)
+movie_titles[str_detect(movie_titles,
+  pattern = &quot;[^\\w\\s]&quot;
+)]
+
+# This lists all movies with two or more digits in a row
+movie_titles[str_detect(
+  movie_titles,
+  pattern = &quot;\\d{2,}&quot;
+)]
+
+# List just the first words of every movie title
+`str_match(movie_titles, pattern = &quot;\\w+&quot;)
+`
+# Match everything that comes before &quot;Knight&quot;
+`str_match(movie_titles, pattern = &quot;.*Knight&quot;)`
+
+
+# Append the three options: Match Nemo, Harmony or Dory
+str_view(lines, pattern = &quot;Finding Nemo|Harmony|Dory&quot;)
+
+# Wrap the three options in parentheses and compare the results
+str_view(lines, pattern = &quot;Finding (Nemo|Harmony|Dory)&quot;)
+
+# Use the pattern from above that matched the whole movie names
+str_match(lines, pattern = &quot;Finding (Nemo|Harmony|Dory)&quot;)
+
+
+# Match both Screen and Screens by making the last &quot;s&quot; optional
+str_match(lines, pattern = &quot;Screens?&quot;)
+
+# Match a random amount of arbitrary characters, followed by a comma
+`str_match(lines, pattern = &quot;.*,&quot;)
+`
+
+# Match the same pattern followed by a comma, but the &quot;lazy&quot; way
+`str_match(lines, pattern = &quot;.*?,&quot;)
+`
+
+
+# Create two temporary variables &quot;n&quot; and &quot;m&quot; and use them
+glue(
+  &quot;The data frame &#39;users&#39; has {n} rows and {m} columns.&quot;,
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %&gt;% mutate(
+  n_logins = glue(&quot;{name} logged in {logins} times.&quot;)
+)
+
+# Create two temporary variables &quot;n&quot; and &quot;m&quot; and use them
+glue(
+  &quot;The data frame &#39;users&#39; has {n} rows and {m} columns.&quot;,
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %&gt;% mutate(
+  n_logins = glue(&quot;{name} logged in {logins} times.&quot;)
+)
+
+# List colnames separated a comma and a white space
+glue_collapse(colnames(users), sep = &quot;, &quot;)
+
+# Use &quot; and &quot; as a separator for the last elements
+glue(
+  &quot;Our users are called {names}.&quot;,
+  names = glue_collapse(users$name, sep = &quot;, &quot;, last = &quot; and &quot;)
+)
+
+# Use the same way to output also the &quot;logins&quot; of the users
+glue(
+  &quot;Our users have logged in {logins} times.&quot;,
+  logins = glue_collapse(users$logins, sep = &quot;, &quot;, last = &quot; and &quot;)
+)
+
+# Split the input by line break and enable simplify
+top_10_lines &lt;- str_split(
+  top_10,
+  pattern = &quot;\\n&quot;,
+  simplify = TRUE
+)
+
+# Inspect the first three lines and analyze their form
+top_10_lines[1:3]
+
+# Add to the pattern two capturing groups that match rank and title
+str_match(
+  top_10_lines,
+  pattern = &quot;(\\d+)\\. (.+)&quot;
+)
+
+# Remove a space followed by &quot;3D&quot; at the end of the line
+str_replace(
+  top_10_lines,
+  pattern = &quot; 3D$&quot;,
+  replacement = &quot;&quot;
+)
+
+# Use backreferences 2 and 1 to create a new sentence
+`str_replace(
+  top_10_lines,
+  pattern = &quot;(\\d+)\\. (.*)&quot;,
+  replacement = &quot;\\2 is at rank \\1&quot;
+)
+`
+
+# Create our polit_pattern again by collapsing &quot;politicians&quot;
+polit_pattern &lt;- glue_collapse(politicians, sep = &quot;|&quot;)
+
+# Match one or more word characters or punctuations
+context &lt;- &quot;([\\w[:punct:]]+\\s){0,10}&quot;
+
+# Add this pattern in front and after the polit_pattern
+polit_pattern_with_context &lt;- glue(
+  &quot;{context}({polit_pattern})\\s?{context}&quot;
+)
+
+str_extract_all(
+  articles$text,
+  pattern = polit_pattern_with_context
+)
+</code></pre>

@@ -1,16 +1,182 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts | Academic</title>
+    <title>Posts | GibbonLearning</title>
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 29 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Regular Expression using R</title>
+      <link>/post/reinr/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/reinr/</guid>
+      <description>
+
+
+&lt;p&gt;使用&lt;code&gt;str_detect&lt;/code&gt;搜索文本中的目标模式，如’cat’以’c’开头的搜索方法为 &lt;code&gt;str_detect(&#39;cat&#39;, &#39;^c&#39;)&lt;/code&gt;，如’cat’以’t’结尾的搜索方法为 &lt;code&gt;str_detect(&#39;cat&#39;, &#39;c$&#39;)&lt;/code&gt;。&lt;code&gt;^&lt;/code&gt;放在pattern的前面，&lt;code&gt;$&lt;/code&gt;放在后面。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Here&amp;#39;s an example pattern that will find the movie Saw 4
+str_match(movie_titles, pattern = &amp;quot;Saw 4&amp;quot;)
+
+# Match all sequels of the movie &amp;quot;Saw&amp;quot;
+str_match(movie_titles, pattern = &amp;quot;Saw..&amp;quot;)
+
+# Match the letter K and three arbitrary characters
+str_match(movie_titles, pattern = &amp;quot;^K...&amp;quot;)
+
+# Detect whether the movie titles end with a full stop
+str_detect(movie_titles, pattern = &amp;quot;\\.$&amp;quot;)
+
+# List all movies that end with a space and a digit
+movie_titles[str_detect(movie_titles,
+  pattern = &amp;quot;\\s\\d$&amp;quot;
+)]
+
+# List all movies that contain &amp;quot;Grey&amp;quot; or &amp;quot;Gray&amp;quot;
+movie_titles[str_detect(movie_titles,
+  pattern = &amp;quot;Gr[ae]y&amp;quot;
+)]
+
+# List all movies with strange characters (no word or space)
+movie_titles[str_detect(movie_titles,
+  pattern = &amp;quot;[^\\w\\s]&amp;quot;
+)]
+
+# This lists all movies with two or more digits in a row
+movie_titles[str_detect(
+  movie_titles,
+  pattern = &amp;quot;\\d{2,}&amp;quot;
+)]
+
+# List just the first words of every movie title
+`str_match(movie_titles, pattern = &amp;quot;\\w+&amp;quot;)
+`
+# Match everything that comes before &amp;quot;Knight&amp;quot;
+`str_match(movie_titles, pattern = &amp;quot;.*Knight&amp;quot;)`
+
+
+# Append the three options: Match Nemo, Harmony or Dory
+str_view(lines, pattern = &amp;quot;Finding Nemo|Harmony|Dory&amp;quot;)
+
+# Wrap the three options in parentheses and compare the results
+str_view(lines, pattern = &amp;quot;Finding (Nemo|Harmony|Dory)&amp;quot;)
+
+# Use the pattern from above that matched the whole movie names
+str_match(lines, pattern = &amp;quot;Finding (Nemo|Harmony|Dory)&amp;quot;)
+
+
+# Match both Screen and Screens by making the last &amp;quot;s&amp;quot; optional
+str_match(lines, pattern = &amp;quot;Screens?&amp;quot;)
+
+# Match a random amount of arbitrary characters, followed by a comma
+`str_match(lines, pattern = &amp;quot;.*,&amp;quot;)
+`
+
+# Match the same pattern followed by a comma, but the &amp;quot;lazy&amp;quot; way
+`str_match(lines, pattern = &amp;quot;.*?,&amp;quot;)
+`
+
+
+# Create two temporary variables &amp;quot;n&amp;quot; and &amp;quot;m&amp;quot; and use them
+glue(
+  &amp;quot;The data frame &amp;#39;users&amp;#39; has {n} rows and {m} columns.&amp;quot;,
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %&amp;gt;% mutate(
+  n_logins = glue(&amp;quot;{name} logged in {logins} times.&amp;quot;)
+)
+
+# Create two temporary variables &amp;quot;n&amp;quot; and &amp;quot;m&amp;quot; and use them
+glue(
+  &amp;quot;The data frame &amp;#39;users&amp;#39; has {n} rows and {m} columns.&amp;quot;,
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %&amp;gt;% mutate(
+  n_logins = glue(&amp;quot;{name} logged in {logins} times.&amp;quot;)
+)
+
+# List colnames separated a comma and a white space
+glue_collapse(colnames(users), sep = &amp;quot;, &amp;quot;)
+
+# Use &amp;quot; and &amp;quot; as a separator for the last elements
+glue(
+  &amp;quot;Our users are called {names}.&amp;quot;,
+  names = glue_collapse(users$name, sep = &amp;quot;, &amp;quot;, last = &amp;quot; and &amp;quot;)
+)
+
+# Use the same way to output also the &amp;quot;logins&amp;quot; of the users
+glue(
+  &amp;quot;Our users have logged in {logins} times.&amp;quot;,
+  logins = glue_collapse(users$logins, sep = &amp;quot;, &amp;quot;, last = &amp;quot; and &amp;quot;)
+)
+
+# Split the input by line break and enable simplify
+top_10_lines &amp;lt;- str_split(
+  top_10,
+  pattern = &amp;quot;\\n&amp;quot;,
+  simplify = TRUE
+)
+
+# Inspect the first three lines and analyze their form
+top_10_lines[1:3]
+
+# Add to the pattern two capturing groups that match rank and title
+str_match(
+  top_10_lines,
+  pattern = &amp;quot;(\\d+)\\. (.+)&amp;quot;
+)
+
+# Remove a space followed by &amp;quot;3D&amp;quot; at the end of the line
+str_replace(
+  top_10_lines,
+  pattern = &amp;quot; 3D$&amp;quot;,
+  replacement = &amp;quot;&amp;quot;
+)
+
+# Use backreferences 2 and 1 to create a new sentence
+`str_replace(
+  top_10_lines,
+  pattern = &amp;quot;(\\d+)\\. (.*)&amp;quot;,
+  replacement = &amp;quot;\\2 is at rank \\1&amp;quot;
+)
+`
+
+# Create our polit_pattern again by collapsing &amp;quot;politicians&amp;quot;
+polit_pattern &amp;lt;- glue_collapse(politicians, sep = &amp;quot;|&amp;quot;)
+
+# Match one or more word characters or punctuations
+context &amp;lt;- &amp;quot;([\\w[:punct:]]+\\s){0,10}&amp;quot;
+
+# Add this pattern in front and after the polit_pattern
+polit_pattern_with_context &amp;lt;- glue(
+  &amp;quot;{context}({polit_pattern})\\s?{context}&amp;quot;
+)
+
+str_extract_all(
+  articles$text,
+  pattern = polit_pattern_with_context
+)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>在哪里跑出租车能赚钱</title>

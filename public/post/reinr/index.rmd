@@ -1,0 +1,183 @@
+---
+title: Regular Expression using R
+author: admin
+date: '2020-02-29'
+slug: reInR
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-29T08:41:23+08:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Load the ggplot2 package
+library(stringr)
+```
+使用`str_detect`搜索文本中的目标模式，如'cat'以'c'开头的搜索方法为 `str_detect('cat', '^c')`，如'cat'以't'结尾的搜索方法为 `str_detect('cat', 'c$')`。`^`放在pattern的前面，`$`放在后面。
+
+
+```
+# Here's an example pattern that will find the movie Saw 4
+str_match(movie_titles, pattern = "Saw 4")
+
+# Match all sequels of the movie "Saw"
+str_match(movie_titles, pattern = "Saw..")
+
+# Match the letter K and three arbitrary characters
+str_match(movie_titles, pattern = "^K...")
+
+# Detect whether the movie titles end with a full stop
+str_detect(movie_titles, pattern = "\\.$")
+
+# List all movies that end with a space and a digit
+movie_titles[str_detect(movie_titles,
+  pattern = "\\s\\d$"
+)]
+
+# List all movies that contain "Grey" or "Gray"
+movie_titles[str_detect(movie_titles,
+  pattern = "Gr[ae]y"
+)]
+
+# List all movies with strange characters (no word or space)
+movie_titles[str_detect(movie_titles,
+  pattern = "[^\\w\\s]"
+)]
+
+# This lists all movies with two or more digits in a row
+movie_titles[str_detect(
+  movie_titles,
+  pattern = "\\d{2,}"
+)]
+
+# List just the first words of every movie title
+`str_match(movie_titles, pattern = "\\w+")
+`
+# Match everything that comes before "Knight"
+`str_match(movie_titles, pattern = ".*Knight")`
+
+
+# Append the three options: Match Nemo, Harmony or Dory
+str_view(lines, pattern = "Finding Nemo|Harmony|Dory")
+
+# Wrap the three options in parentheses and compare the results
+str_view(lines, pattern = "Finding (Nemo|Harmony|Dory)")
+
+# Use the pattern from above that matched the whole movie names
+str_match(lines, pattern = "Finding (Nemo|Harmony|Dory)")
+
+
+# Match both Screen and Screens by making the last "s" optional
+str_match(lines, pattern = "Screens?")
+
+# Match a random amount of arbitrary characters, followed by a comma
+`str_match(lines, pattern = ".*,")
+`
+
+# Match the same pattern followed by a comma, but the "lazy" way
+`str_match(lines, pattern = ".*?,")
+`
+
+
+# Create two temporary variables "n" and "m" and use them
+glue(
+  "The data frame 'users' has {n} rows and {m} columns.",
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %>% mutate(
+  n_logins = glue("{name} logged in {logins} times.")
+)
+
+# Create two temporary variables "n" and "m" and use them
+glue(
+  "The data frame 'users' has {n} rows and {m} columns.",
+  n = nrow(users),
+  m = ncol(users)
+)
+
+# This lists the column names of the data frame users
+colnames(users)
+
+# Use them to create a sentence about the numbers of logins
+users %>% mutate(
+  n_logins = glue("{name} logged in {logins} times.")
+)
+
+# List colnames separated a comma and a white space
+glue_collapse(colnames(users), sep = ", ")
+
+# Use " and " as a separator for the last elements
+glue(
+  "Our users are called {names}.",
+  names = glue_collapse(users$name, sep = ", ", last = " and ")
+)
+
+# Use the same way to output also the "logins" of the users
+glue(
+  "Our users have logged in {logins} times.",
+  logins = glue_collapse(users$logins, sep = ", ", last = " and ")
+)
+
+# Split the input by line break and enable simplify
+top_10_lines <- str_split(
+  top_10,
+  pattern = "\\n",
+  simplify = TRUE
+)
+
+# Inspect the first three lines and analyze their form
+top_10_lines[1:3]
+
+# Add to the pattern two capturing groups that match rank and title
+str_match(
+  top_10_lines,
+  pattern = "(\\d+)\\. (.+)"
+)
+
+# Remove a space followed by "3D" at the end of the line
+str_replace(
+  top_10_lines,
+  pattern = " 3D$",
+  replacement = ""
+)
+
+# Use backreferences 2 and 1 to create a new sentence
+`str_replace(
+  top_10_lines,
+  pattern = "(\\d+)\\. (.*)",
+  replacement = "\\2 is at rank \\1"
+)
+`
+
+# Create our polit_pattern again by collapsing "politicians"
+polit_pattern <- glue_collapse(politicians, sep = "|")
+
+# Match one or more word characters or punctuations
+context <- "([\\w[:punct:]]+\\s){0,10}"
+
+# Add this pattern in front and after the polit_pattern
+polit_pattern_with_context <- glue(
+  "{context}({polit_pattern})\\s?{context}"
+)
+
+str_extract_all(
+  articles$text,
+  pattern = polit_pattern_with_context
+)
+
+```

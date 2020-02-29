@@ -33,18 +33,28 @@
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/example/</loc>
+    <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-29T08:41:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/reinr/</loc>
+    <lastmod>2020-02-29T08:41:23+08:00</lastmod>
   </url>
   
   <url>
@@ -69,11 +79,6 @@
   
   <url>
     <loc>/categories/demo/</loc>
-    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-02-20T00:00:00+00:00</lastmod>
   </url>
   
