@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading Literatures | GibbonLearning</title>
+    <link>/courses/learningreferences/</link>
+      <atom:link href="/courses/learningreferences/index.xml" rel="self" type="application/rss+xml" />
+    <description>Reading Literatures</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 08 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Reading Literatures</title>
+      <link>/courses/learningreferences/</link>
+    </image>
+    
+    <item>
+      <title>How to setup camera traps</title>
+      <link>/courses/learningreferences/cameratraps/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0100</pubDate>
+      <guid>/courses/learningreferences/cameratraps/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://doi.org/10.1111/2041-210X.13370&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;An empirical evaluation of camera trap study design: how many, how long, and when?&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Methods in Ecology and Evolution on 03 February 2020&lt;/p&gt;
+&lt;p&gt;这是一篇讨论相机陷阱布设方法的文章。相机陷阱是一种被广泛使用的物种多样性调查与监测方法，按照大多数的规范要求，红外相机通常按照公里网格的规范布设，一次调查布设20-30台相机组成一个密度为1台/2 km2或1台 /km2的相机阵列，覆盖20-60km2的面积，持续监测超过1个月/台，布设位点覆盖植被类型、海拔梯度和人类活动干扰梯度等（肖治术等 2014）。&lt;/p&gt;
+&lt;p&gt;然而，这些布设标准多来自于经验积累，虽然已经有很多研究在理论上对于相机陷阱有大量讨论，然而，仍然缺少对目前相机陷阱研究结果的综合分析。鉴于全球气候变化以及生物多样性丧失的速度，物种的监测变得愈发重要，因此也应该提出适应性的方法规范。&lt;/p&gt;
+&lt;p&gt;Kays等(2010)汇总了41个热带区域的2225台相机监测结果，对研究结果进行了抽样再分析，评估了相机布设参数对于物种多样性调查结果的影响，回答了在什么时间段布设多少台相机，需要多长时间，才能够获得较为准确的本底物种多样性信息。Kays的研究中，兽类物种多样性的量化数据主要为物种数、占有率和探测率，通过分析相机位点数、监测时长和季节对多样性指数的精度和准确度的影响，以此评估为了获得较为准确数据的相机布设参数如何选择。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问题1，多少台相机可以准确估计物种数量和物种的占有率，即抽样分析多少台相机可以获得偏离本底物种数&amp;lt;5%的物种数量，或者在多少台相机监测情况下，增加相机引起物种占有率的误差不超过1%；&lt;/li&gt;
+&lt;li&gt;问题2，相机布设后多长时间可以监测到总体物种数量的90%以上，或者经过多长时间物种的占有率和探测率误差小于10%。&lt;/li&gt;
+&lt;li&gt;问题3，物种探测率、占有率是否有季节性变化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;从分析结果来看，相机布设的规范需要考虑监测目标和物种特征，在以本底物种数量为主且不考虑一定要监测到罕见种（探测率&amp;lt;0.25）的情况下，大面积调查区域可以按照公里网格布设40-60台相机，持续3-5周，获得95%以上的物种数量及10%误差以内的物种占有率；若有罕见种则需要增加相机数量到150，且持续监测60天以上。季节性是影响物种信息的重要因素，无论是温带还是热带区域，因此需要根据物种目标判断最佳的布设季节。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
