@@ -54,4 +54,4 @@ hero_media = "hero-academic.png"
 **Learning from animals**
 
 
-[***Update: add posts***](https://drgeebbon.netlify.com/#posts)
+[***Update: modify gibbon survey post***](https://drgeebbon.netlify.com/#posts)
