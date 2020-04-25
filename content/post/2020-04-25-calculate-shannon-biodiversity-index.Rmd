@@ -6,7 +6,7 @@ slug: calculate-shannon-biodiversity-index
 categories: []
 tags: []
 subtitle: ''
-summary: ''
+summary: '简单方法模拟计算香农指数和辛普森指数'
 authors: []
 lastmod: '2020-04-25T12:34:24+08:00'
 featured: no
@@ -17,9 +17,22 @@ image:
 projects: []
 ---
 
+
+## 香农生物多样性指数 Shannon——index
+
+$$
+H = - \frac{n}{N}*log(\frac{n}{N})
+$$
+
+
+n：某个物种的数量
+
+N：所有物种的总体数量
+
+Suppose there are 4 species, a,b,c,d, 10 individuals for each species.
+
 ```{r}
 
-# there are 4 species, a,b,c,d, 10 individuals for each species.
 a = 5
 b = 10
 c = 10
@@ -58,7 +71,6 @@ shan[j] <- species_richness %>%
   
 }
 
-hist(shan)
 
 
 
@@ -92,5 +104,65 @@ ggplot(data.frame(x=1:100, shan, shan_even))+
 
 ```
 
+
+
+## 辛普森生物多样性指数 Simpson-—index
+
+$$
+D = 1 - \sum\frac{n*(n-1)}{N(N-1)}
+$$
+
+假设一个样地中有X个物种，每个物种的个体数是n，总的个体数是N
+
+```{r}
+
+
+library(tidyverse)
+
+# make a biodiversity including x species 
+
+shannon <- vector()
+simpson <- vector()
+
+
+for (j in 1:50){
+
+species_richness <- vector()
+
+for (i in 1:j){
+  t = rpois(1, 10)
+  species_richness <- append(species_richness ,rep(i,t))
+
+}
+
+
+shannon[j] <- species_richness %>% 
+  table() %>% 
+  as.data.frame() %>% 
+  rename(sp = ".", n = "Freq") %>% 
+  mutate(sp = paste0("species",sp)) %>% 
+  summarise(H = -sum(n/sum(n)*log(n/sum(n)))) %>% .$H
+
+
+simpson[j] <- species_richness %>% 
+  table() %>% 
+  as.data.frame() %>% 
+  rename(sp = ".", n = "Freq") %>% 
+  mutate(sp = paste0("species",sp),
+         nn_1 = n*(n-1),
+         N = sum(n),
+         N_1 = N-1) %>% 
+  summarise(S = 1 - sum(nn_1 / (N*N_1))) %>% .$S
+
+}
+
+library(ggplot2)
+ggplot(data.frame(x=1:50, shannon, simpson), aes(x=x))+ 
+  geom_line(aes( y=shannon), col="red")+
+  geom_line(aes( y=simpson*5), col="blue")+
+  scale_y_continuous(sec.axis = sec_axis(~./5, name = "Simpson (blue)"))+
+  theme_light()
+
+```
 
 

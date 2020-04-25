@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="# there are 4 species, a,b,c,d, 10 individuals for each species. a = 5 b = 10 c = 10 d = 10 - 4 * (10/40) * log(10/40) ## [1] 1.386294 - ((5/35) * log(5/35) &#43; 3 * (10/35) * log(10/35)) ## [1] 1.351784 # there are specific numbers of species, which have different number of individuals library(tidyverse) ## ── Attaching packages ─────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3.">
+  <meta name="description" content="简单方法模拟计算香农指数和辛普森指数">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/calculate-shannon-biodiversity-index/">
@@ -234,7 +234,7 @@
   <meta property="og:site_name" content="GibbonLearning">
   <meta property="og:url" content="/post/calculate-shannon-biodiversity-index/">
   <meta property="og:title" content="Calculate Shannon Biodiversity Index | GibbonLearning">
-  <meta property="og:description" content="# there are 4 species, a,b,c,d, 10 individuals for each species. a = 5 b = 10 c = 10 d = 10 - 4 * (10/40) * log(10/40) ## [1] 1.386294 - ((5/35) * log(5/35) &#43; 3 * (10/35) * log(10/35)) ## [1] 1.351784 # there are specific numbers of species, which have different number of individuals library(tidyverse) ## ── Attaching packages ─────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="简单方法模拟计算香农指数和辛普森指数"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     
@@ -286,7 +286,7 @@
       "url": "img//"
     }
   },
-  "description": "# there are 4 species, a,b,c,d, 10 individuals for each species. a = 5 b = 10 c = 10 d = 10 - 4 * (10/40) * log(10/40) ## [1] 1.386294 - ((5/35) * log(5/35) + 3 * (10/35) * log(10/35)) ## [1] 1.351784 # there are specific numbers of species, which have different number of individuals library(tidyverse) ## ── Attaching packages ─────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3."
+  "description": "简单方法模拟计算香农指数和辛普森指数"
 }
 </script>
 
@@ -606,8 +606,15 @@
       
 
 
-<pre class="r"><code># there are 4 species, a,b,c,d, 10 individuals for each species.
-a = 5
+<div id="香农生物多样性指数-shannonindex" class="section level2">
+<h2>香农生物多样性指数 Shannon——index</h2>
+<p><span class="math display">\[
+H = - \frac{n}{N}*log(\frac{n}{N})
+\]</span></p>
+<p>n：某个物种的数量</p>
+<p>N：所有物种的总体数量</p>
+<p>Suppose there are 4 species, a,b,c,d, 10 individuals for each species.</p>
+<pre class="r"><code>a = 5
 b = 10
 c = 10
 d = 10
@@ -649,9 +656,11 @@ shan[j] &lt;- species_richness %&gt;%
   
 }
 
-hist(shan)</code></pre>
-<p><img src="/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<pre class="r"><code>shan_even &lt;- vector()
+
+
+
+
+shan_even &lt;- vector()
 
 for (j in 1:100){
   species_richness &lt;- vector()
@@ -677,7 +686,61 @@ library(ggplot2)
 ggplot(data.frame(x=1:100, shan, shan_even))+ 
   geom_point(aes(x=x, y=shan), col=&quot;red&quot;) + 
   geom_line(aes(x=x, y=shan_even), col=&quot;blue&quot;)</code></pre>
-<p><img src="/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<p><img src="/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="辛普森生物多样性指数-simpson-index" class="section level2">
+<h2>辛普森生物多样性指数 Simpson-—index</h2>
+<p><span class="math display">\[
+D = 1 - \sum\frac{n*(n-1)}{N(N-1)}
+\]</span></p>
+<p>假设一个样地中有X个物种，每个物种的个体数是n，总的个体数是N</p>
+<pre class="r"><code>library(tidyverse)
+
+# make a biodiversity including x species 
+
+shannon &lt;- vector()
+simpson &lt;- vector()
+
+
+for (j in 1:50){
+
+species_richness &lt;- vector()
+
+for (i in 1:j){
+  t = rpois(1, 10)
+  species_richness &lt;- append(species_richness ,rep(i,t))
+
+}
+
+
+shannon[j] &lt;- species_richness %&gt;% 
+  table() %&gt;% 
+  as.data.frame() %&gt;% 
+  rename(sp = &quot;.&quot;, n = &quot;Freq&quot;) %&gt;% 
+  mutate(sp = paste0(&quot;species&quot;,sp)) %&gt;% 
+  summarise(H = -sum(n/sum(n)*log(n/sum(n)))) %&gt;% .$H
+
+
+simpson[j] &lt;- species_richness %&gt;% 
+  table() %&gt;% 
+  as.data.frame() %&gt;% 
+  rename(sp = &quot;.&quot;, n = &quot;Freq&quot;) %&gt;% 
+  mutate(sp = paste0(&quot;species&quot;,sp),
+         nn_1 = n*(n-1),
+         N = sum(n),
+         N_1 = N-1) %&gt;% 
+  summarise(S = 1 - sum(nn_1 / (N*N_1))) %&gt;% .$S
+
+}
+
+library(ggplot2)
+ggplot(data.frame(x=1:50, shannon, simpson), aes(x=x))+ 
+  geom_line(aes( y=shannon), col=&quot;red&quot;)+
+  geom_line(aes( y=simpson*5), col=&quot;blue&quot;)+
+  scale_y_continuous(sec.axis = sec_axis(~./5, name = &quot;Simpson (blue)&quot;))+
+  theme_light()</code></pre>
+<p><img src="/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
 
     </div>
 

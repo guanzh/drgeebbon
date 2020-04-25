@@ -153,8 +153,15 @@ true
       <description>
 
 
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# there are 4 species, a,b,c,d, 10 individuals for each species.
-a = 5
+&lt;div id=&#34;香农生物多样性指数-shannonindex&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;香农生物多样性指数 Shannon——index&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+H = - \frac{n}{N}*log(\frac{n}{N})
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;n：某个物种的数量&lt;/p&gt;
+&lt;p&gt;N：所有物种的总体数量&lt;/p&gt;
+&lt;p&gt;Suppose there are 4 species, a,b,c,d, 10 individuals for each species.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a = 5
 b = 10
 c = 10
 d = 10
@@ -196,9 +203,11 @@ shan[j] &amp;lt;- species_richness %&amp;gt;%
   
 }
 
-hist(shan)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shan_even &amp;lt;- vector()
+
+
+
+
+shan_even &amp;lt;- vector()
 
 for (j in 1:100){
   species_richness &amp;lt;- vector()
@@ -224,7 +233,61 @@ library(ggplot2)
 ggplot(data.frame(x=1:100, shan, shan_even))+ 
   geom_point(aes(x=x, y=shan), col=&amp;quot;red&amp;quot;) + 
   geom_line(aes(x=x, y=shan_even), col=&amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;辛普森生物多样性指数-simpson-index&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;辛普森生物多样性指数 Simpson-—index&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+D = 1 - \sum\frac{n*(n-1)}{N(N-1)}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;假设一个样地中有X个物种，每个物种的个体数是n，总的个体数是N&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+# make a biodiversity including x species 
+
+shannon &amp;lt;- vector()
+simpson &amp;lt;- vector()
+
+
+for (j in 1:50){
+
+species_richness &amp;lt;- vector()
+
+for (i in 1:j){
+  t = rpois(1, 10)
+  species_richness &amp;lt;- append(species_richness ,rep(i,t))
+
+}
+
+
+shannon[j] &amp;lt;- species_richness %&amp;gt;% 
+  table() %&amp;gt;% 
+  as.data.frame() %&amp;gt;% 
+  rename(sp = &amp;quot;.&amp;quot;, n = &amp;quot;Freq&amp;quot;) %&amp;gt;% 
+  mutate(sp = paste0(&amp;quot;species&amp;quot;,sp)) %&amp;gt;% 
+  summarise(H = -sum(n/sum(n)*log(n/sum(n)))) %&amp;gt;% .$H
+
+
+simpson[j] &amp;lt;- species_richness %&amp;gt;% 
+  table() %&amp;gt;% 
+  as.data.frame() %&amp;gt;% 
+  rename(sp = &amp;quot;.&amp;quot;, n = &amp;quot;Freq&amp;quot;) %&amp;gt;% 
+  mutate(sp = paste0(&amp;quot;species&amp;quot;,sp),
+         nn_1 = n*(n-1),
+         N = sum(n),
+         N_1 = N-1) %&amp;gt;% 
+  summarise(S = 1 - sum(nn_1 / (N*N_1))) %&amp;gt;% .$S
+
+}
+
+library(ggplot2)
+ggplot(data.frame(x=1:50, shannon, simpson), aes(x=x))+ 
+  geom_line(aes( y=shannon), col=&amp;quot;red&amp;quot;)+
+  geom_line(aes( y=simpson*5), col=&amp;quot;blue&amp;quot;)+
+  scale_y_continuous(sec.axis = sec_axis(~./5, name = &amp;quot;Simpson (blue)&amp;quot;))+
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
