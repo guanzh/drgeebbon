@@ -1,0 +1,96 @@
+---
+title: Calculate Shannon Biodiversity Index
+author: geebbon
+date: '2020-04-25'
+slug: calculate-shannon-biodiversity-index
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-25T12:34:24+08:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r}
+
+# there are 4 species, a,b,c,d, 10 individuals for each species.
+a = 5
+b = 10
+c = 10
+d = 10
+
+- 4 * (10/40)  * log(10/40)
+
+- ((5/35) * log(5/35) + 3 * (10/35)  * log(10/35))
+
+
+# there are specific numbers of species, which have different number of individuals
+
+library(tidyverse)
+
+
+
+shan <- vector()
+
+for (j in 1:100){
+species_richness <- vector()
+
+for (i in 1:50){
+  t = rpois(1, 25)
+  species_richness <- append(species_richness, rep(i, t))
+}
+
+shan[j] <- species_richness %>% 
+  table() %>% 
+  as.data.frame() %>% 
+  rename(sp = ".", n = "Freq") %>% 
+  mutate(per = n/sum(n), 
+         logper = log(per),
+         h = per * logper) %>% 
+  summarise(shannon = -sum(h)) %>% 
+  .$shannon
+  
+}
+
+hist(shan)
+
+
+
+
+shan_even <- vector()
+
+for (j in 1:100){
+  species_richness <- vector()
+  
+  for (i in 1:50){
+    t = rpois(1, 25)
+    species_richness <- append(species_richness, rep(i, 10))
+  }
+  
+  shan_even[j] <- species_richness %>% 
+    table() %>% 
+    as.data.frame() %>% 
+    rename(sp = ".", n = "Freq") %>% 
+    mutate(per = n/sum(n), 
+           logper = log(per),
+           h = per * logper) %>% 
+    summarise(shannon = -sum(h)) %>% 
+    .$shannon
+  
+}
+
+library(ggplot2)
+ggplot(data.frame(x=1:100, shan, shan_even))+ 
+  geom_point(aes(x=x, y=shan), col="red") + 
+  geom_line(aes(x=x, y=shan_even), col="blue")
+
+```
+
+
+

@@ -1,0 +1,93 @@
+---
+title: Calculate Shannon Biodiversity Index
+author: geebbon
+date: '2020-04-25'
+slug: calculate-shannon-biodiversity-index
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-25T12:34:24+08:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<pre class="r"><code># there are 4 species, a,b,c,d, 10 individuals for each species.
+a = 5
+b = 10
+c = 10
+d = 10
+
+- 4 * (10/40)  * log(10/40)</code></pre>
+<pre><code>## [1] 1.386294</code></pre>
+<pre class="r"><code>- ((5/35) * log(5/35) + 3 * (10/35)  * log(10/35))</code></pre>
+<pre><code>## [1] 1.351784</code></pre>
+<pre class="r"><code># there are specific numbers of species, which have different number of individuals
+
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.0     ✓ purrr   0.3.4
+## ✓ tibble  3.0.0     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>shan &lt;- vector()
+
+for (j in 1:100){
+species_richness &lt;- vector()
+
+for (i in 1:50){
+  t = rpois(1, 25)
+  species_richness &lt;- append(species_richness, rep(i, t))
+}
+
+shan[j] &lt;- species_richness %&gt;% 
+  table() %&gt;% 
+  as.data.frame() %&gt;% 
+  rename(sp = &quot;.&quot;, n = &quot;Freq&quot;) %&gt;% 
+  mutate(per = n/sum(n), 
+         logper = log(per),
+         h = per * logper) %&gt;% 
+  summarise(shannon = -sum(h)) %&gt;% 
+  .$shannon
+  
+}
+
+hist(shan)</code></pre>
+<p><img src="/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>shan_even &lt;- vector()
+
+for (j in 1:100){
+  species_richness &lt;- vector()
+  
+  for (i in 1:50){
+    t = rpois(1, 25)
+    species_richness &lt;- append(species_richness, rep(i, 10))
+  }
+  
+  shan_even[j] &lt;- species_richness %&gt;% 
+    table() %&gt;% 
+    as.data.frame() %&gt;% 
+    rename(sp = &quot;.&quot;, n = &quot;Freq&quot;) %&gt;% 
+    mutate(per = n/sum(n), 
+           logper = log(per),
+           h = per * logper) %&gt;% 
+    summarise(shannon = -sum(h)) %&gt;% 
+    .$shannon
+  
+}
+
+library(ggplot2)
+ggplot(data.frame(x=1:100, shan, shan_even))+ 
+  geom_point(aes(x=x, y=shan), col=&quot;red&quot;) + 
+  geom_line(aes(x=x, y=shan_even), col=&quot;blue&quot;)</code></pre>
+<p><img src="/post/2020-04-25-calculate-shannon-biodiversity-index_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
